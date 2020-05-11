@@ -12,6 +12,43 @@ void LedInit(){
 	IO1SET=LED0_bm;	 
 }
 
+
+void LedOn(unsigned char ucLedindeks){
+	IO1CLR=LED0_bm|LED1_bm|LED2_bm|LED3_bm;
+	switch(ucLedindeks){
+		case 0:
+			IO1SET=LED0_bm;
+			break;
+		case 1:
+			IO1SET=LED1_bm;
+			break;
+		case 2:
+			IO1SET=LED2_bm;
+			break;
+		case 3:
+			IO1SET=LED3_bm;
+			break;
+		default:
+			break;
+	}
+}
+void LedStep(int StepDirection){
+	
+	static unsigned int uiNrDiody=0;
+	
+	switch(StepDirection){
+		case LEFT:
+			uiNrDiody++;
+			break;
+		case RIGHT:
+			uiNrDiody--;
+			break;
+		default:
+			break;
+	}
+	LedOn(uiNrDiody%4);
+}
+
 void LedStepLeft(){
 	LedStep(LEFT);
 }

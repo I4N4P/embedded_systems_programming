@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Scechura_5.2]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Scechura_5.2</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Mon Apr 06 19:53:19 2020
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Wed Apr 29 10:01:43 2020
 <BR><P>
 <H3>Maximum Stack Usage =         64 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -180,27 +180,14 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[11]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_setup_stackheap
 </UL>
 
-<P><STRONG><a name="[1b]"></a>LedOn</STRONG> (ARM, 144 bytes, Stack size 0 bytes, main.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LedStep
-</UL>
-
-<P><STRONG><a name="[1a]"></a>LedStep</STRONG> (ARM, 120 bytes, Stack size 4 bytes, main.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = LedStep
-</UL>
-<BR>[Calls]<UL><LI><a href="#[1b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LedOn
-</UL>
-<BR>[Called By]<UL><LI><a href="#[25]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LedStepRight
-<LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LedStepLeft
-</UL>
-
-<P><STRONG><a name="[1c]"></a>Delay</STRONG> (ARM, 88 bytes, Stack size 32 bytes, main.o(.text))
+<P><STRONG><a name="[1a]"></a>Delay</STRONG> (ARM, 88 bytes, Stack size 32 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = Delay &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[21]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfcmple
-<LI><a href="#[20]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
-<LI><a href="#[1d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
-<LI><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-<LI><a href="#[1f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
+<BR>[Calls]<UL><LI><a href="#[1f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfcmple
+<LI><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
+<LI><a href="#[1b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[1c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[1d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -208,40 +195,53 @@ Global Symbols
 <P><STRONG><a name="[a]"></a>main</STRONG> (ARM, 84 bytes, Stack size 0 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = main &rArr; Delay &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[24]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eKeyBoardRead
-<LI><a href="#[25]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LedStepRight
-<LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LedStepLeft
-<LI><a href="#[23]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LedInit
-<LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KeyboardInit
-<LI><a href="#[1c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay
+<BR>[Calls]<UL><LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eKeyBoardRead
+<LI><a href="#[23]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LedStepRight
+<LI><a href="#[24]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LedStepLeft
+<LI><a href="#[21]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LedInit
+<LI><a href="#[20]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KeyboardInit
+<LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> rtentry2.o(.ARM.Collect$$rtentry$$0000000D)
 </UL>
-<P><STRONG><a name="[23]"></a>LedInit</STRONG> (ARM, 40 bytes, Stack size 0 bytes, led.o(.text))
+<P><STRONG><a name="[21]"></a>LedInit</STRONG> (ARM, 40 bytes, Stack size 0 bytes, led.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[26]"></a>LedStepLeft</STRONG> (ARM, 20 bytes, Stack size 8 bytes, led.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = LedStepLeft &rArr; LedStep
+<P><STRONG><a name="[26]"></a>LedOn</STRONG> (ARM, 144 bytes, Stack size 0 bytes, led.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[25]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LedStep
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LedStep
+
+<P><STRONG><a name="[25]"></a>LedStep</STRONG> (ARM, 120 bytes, Stack size 4 bytes, led.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = LedStep
+</UL>
+<BR>[Calls]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LedOn
+</UL>
+<BR>[Called By]<UL><LI><a href="#[23]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LedStepRight
+<LI><a href="#[24]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LedStepLeft
+</UL>
+
+<P><STRONG><a name="[24]"></a>LedStepLeft</STRONG> (ARM, 20 bytes, Stack size 4 bytes, led.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = LedStepLeft &rArr; LedStep
+</UL>
+<BR>[Calls]<UL><LI><a href="#[25]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LedStep
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[25]"></a>LedStepRight</STRONG> (ARM, 20 bytes, Stack size 8 bytes, led.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = LedStepRight &rArr; LedStep
+<P><STRONG><a name="[23]"></a>LedStepRight</STRONG> (ARM, 20 bytes, Stack size 4 bytes, led.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = LedStepRight &rArr; LedStep
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LedStep
+<BR>[Calls]<UL><LI><a href="#[25]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LedStep
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[22]"></a>KeyboardInit</STRONG> (ARM, 24 bytes, Stack size 0 bytes, keyboard.o(.text))
+<P><STRONG><a name="[20]"></a>KeyboardInit</STRONG> (ARM, 24 bytes, Stack size 0 bytes, keyboard.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[24]"></a>eKeyBoardRead</STRONG> (ARM, 104 bytes, Stack size 0 bytes, keyboard.o(.text))
+<P><STRONG><a name="[22]"></a>eKeyBoardRead</STRONG> (ARM, 104 bytes, Stack size 0 bytes, keyboard.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -284,10 +284,10 @@ Global Symbols
 
 <P><STRONG><a name="[5a]"></a>__use_no_semihosting_swi</STRONG> (ARM, 4 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
 
-<P><STRONG><a name="[1f]"></a>__aeabi_d2f</STRONG> (ARM, 0 bytes, Stack size 32 bytes, d2f.o(x$fpl$d2f))
+<P><STRONG><a name="[1d]"></a>__aeabi_d2f</STRONG> (ARM, 0 bytes, Stack size 32 bytes, d2f.o(x$fpl$d2f))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_d2f
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay
+<BR>[Called By]<UL><LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay
 </UL>
 
 <P><STRONG><a name="[5b]"></a>__semihosting_library_function</STRONG> (ARM, 0 bytes, Stack size 32 bytes, indicate_semi.o(.text), UNUSED)
@@ -297,10 +297,10 @@ Global Symbols
 <LI><a href="#[2d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dnaninf
 </UL>
 
-<P><STRONG><a name="[1e]"></a>__aeabi_dmul</STRONG> (ARM, 0 bytes, Stack size 32 bytes, dmul.o(x$fpl$dmul))
+<P><STRONG><a name="[1c]"></a>__aeabi_dmul</STRONG> (ARM, 0 bytes, Stack size 32 bytes, dmul.o(x$fpl$dmul))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_dmul
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay
+<BR>[Called By]<UL><LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay
 </UL>
 
 <P><STRONG><a name="[2e]"></a>_dmul</STRONG> (ARM, 372 bytes, Stack size 32 bytes, dmul.o(x$fpl$dmul), UNUSED)
@@ -318,10 +318,10 @@ Global Symbols
 <LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dmul
 </UL>
 
-<P><STRONG><a name="[1d]"></a>__aeabi_f2d</STRONG> (ARM, 0 bytes, Stack size 16 bytes, f2d.o(x$fpl$f2d))
+<P><STRONG><a name="[1b]"></a>__aeabi_f2d</STRONG> (ARM, 0 bytes, Stack size 16 bytes, f2d.o(x$fpl$f2d))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_f2d
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay
+<BR>[Called By]<UL><LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay
 </UL>
 
 <P><STRONG><a name="[30]"></a>_f2d</STRONG> (ARM, 100 bytes, Stack size 16 bytes, f2d.o(x$fpl$f2d), UNUSED)
@@ -333,18 +333,18 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fcmple
 </UL>
 
-<P><STRONG><a name="[20]"></a>__aeabi_i2f</STRONG> (ARM, 0 bytes, Stack size 0 bytes, fflt_noclz.o(x$fpl$fflt))
-<BR><BR>[Called By]<UL><LI><a href="#[1c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay
+<P><STRONG><a name="[1e]"></a>__aeabi_i2f</STRONG> (ARM, 0 bytes, Stack size 0 bytes, fflt_noclz.o(x$fpl$fflt))
+<BR><BR>[Called By]<UL><LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay
 </UL>
 
 <P><STRONG><a name="[5c]"></a>_fflt</STRONG> (ARM, 92 bytes, Stack size 0 bytes, fflt_noclz.o(x$fpl$fflt), UNUSED)
 
 <P><STRONG><a name="[5d]"></a>__fflt_normalise</STRONG> (ARM, 0 bytes, Stack size unknown bytes, fflt_noclz.o(x$fpl$fflt), UNUSED)
 
-<P><STRONG><a name="[21]"></a>__aeabi_cfcmple</STRONG> (ARM, 0 bytes, Stack size 16 bytes, fleqf.o(x$fpl$fleqf))
+<P><STRONG><a name="[1f]"></a>__aeabi_cfcmple</STRONG> (ARM, 0 bytes, Stack size 16 bytes, fleqf.o(x$fpl$fleqf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_cfcmple
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay
+<BR>[Called By]<UL><LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay
 </UL>
 
 <P><STRONG><a name="[32]"></a>_fcmple</STRONG> (ARM, 132 bytes, Stack size 16 bytes, fleqf.o(x$fpl$fleqf), UNUSED)

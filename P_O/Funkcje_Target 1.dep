@@ -1,4 +1,11 @@
 Dependencies for Project 'Funkcje', Target 'Target 1': (DO NOT MODIFY !)
 F (.\Startup.s)(0x51C81B7E)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips--list .\startup.lst --xref -o .\startup.o --depend .\startup.d)
-F (.\main.c)(0x5E8CC011)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\main.o --omf_browse .\main.crf --depend .\main.d)
-I (C:\Keil\ARM\Inc\Philips\LPC21xx.H)(0x51C81BAC)
+F (.\main.c)(0x5E8D8748)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\main.o --omf_browse .\main.crf --depend .\main.d)
+I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x51C80BA4)
+I (C:\Keil\ARM\ARMCC\include\string.h)(0x51C80BA4)
+I (C:\Users\Blue\Desktop\programowanie w c\P_O\Strings1.h)(0x5E8CA3A8)
+I (C:\Users\Blue\Desktop\programowanie w c\P_O\String2.h)(0x5E8CA511)
+F (.\Strings1.c)(0x5E8CA3CA)()
+F (.\String2.c)(0x5E8CA511)()
+F (.\Strings1.h)(0x5E8CA3A8)()
+F (.\String2.h)(0x5E8CA511)()

@@ -398,11 +398,6 @@
               <FilePath>.\Startup.s</FilePath>
             </File>
             <File>
-              <FileName>main.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\main.c</FilePath>
-            </File>
-            <File>
               <FileName>Keyboard.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Keyboard.c</FilePath>
@@ -431,6 +426,11 @@
               <FileName>timer.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\timer.h</FilePath>
+            </File>
+            <File>
+              <FileName>7.1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\7.1.c</FilePath>
             </File>
           </Files>
         </Group>

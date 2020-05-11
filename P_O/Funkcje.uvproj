@@ -402,6 +402,26 @@
               <FileType>1</FileType>
               <FilePath>.\main.c</FilePath>
             </File>
+            <File>
+              <FileName>Strings1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Strings1.c</FilePath>
+            </File>
+            <File>
+              <FileName>String2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\String2.c</FilePath>
+            </File>
+            <File>
+              <FileName>Strings1.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Strings1.h</FilePath>
+            </File>
+            <File>
+              <FileName>String2.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\String2.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

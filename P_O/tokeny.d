@@ -1,3 +1,2 @@
 .\tokeny.o: Tokeny.c
-.\tokeny.o: main.c
-.\tokeny.o: C:\Keil\ARM\Inc\Philips\LPC21xx.H
+.\tokeny.o: C:\Keil\ARM\ARMCC\bin\..\include\string.h

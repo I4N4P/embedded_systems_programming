@@ -1,19 +1,19 @@
 Dependencies for Project 'Timery7_1', Target 'Target 1': (DO NOT MODIFY !)
-F (.\Startup.s)(0x51C80D6E)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips--list .\startup.lst --xref -o .\startup.o --depend .\startup.d)
-F (.\main.c)(0x5E713C76)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\main.o --omf_browse .\main.crf --depend .\main.d)
+F (.\Startup.s)(0x51C81B7E)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips--list .\startup.lst --xref -o .\startup.o --depend .\startup.d)
+F (.\Keyboard.c)(0x5E6FD4C6)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\keyboard.o --omf_browse .\keyboard.crf --depend .\keyboard.d)
 I (C:\Keil\ARM\Inc\Philips\LPC21xx.H)(0x51C80D9C)
-I (C:\Users\dawid\OneDrive\Pulpit\programowanie w c\Archive\GPIO_7_timer\Led.h)(0x5E684712)
-I (C:\Users\dawid\OneDrive\Pulpit\programowanie w c\Archive\GPIO_7_timer\keyboard.h)(0x5E684710)
-I (C:\Users\dawid\OneDrive\Pulpit\programowanie w c\Archive\GPIO_7_timer\timer.h)(0x5E713C8E)
-F (.\Keyboard.c)(0x5E6FC6B5)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\keyboard.o --omf_browse .\keyboard.crf --depend .\keyboard.d)
+I (C:\Users\Blue\Desktop\programowanie w c\Archive\GPIO_7_timer\keyboard.h)(0x5E685520)
+F (.\Led.c)(0x5E9F69F3)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\led.o --omf_browse .\led.crf --depend .\led.d)
 I (C:\Keil\ARM\Inc\Philips\LPC21xx.H)(0x51C80D9C)
-I (C:\Users\dawid\OneDrive\Pulpit\programowanie w c\Archive\GPIO_7_timer\keyboard.h)(0x5E684710)
-F (.\Led.c)(0x5E6FC6B5)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\led.o --omf_browse .\led.crf --depend .\led.d)
+I (C:\Users\Blue\Desktop\programowanie w c\Archive\GPIO_7_timer\Led.h)(0x5E9FF8C7)
+F (.\keyboard.h)(0x5E685520)()
+F (.\Led.h)(0x5E9FF8C7)()
+F (.\timer.c)(0x5EA85AA6)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\timer.o --omf_browse .\timer.crf --depend .\timer.d)
 I (C:\Keil\ARM\Inc\Philips\LPC21xx.H)(0x51C80D9C)
-I (C:\Users\dawid\OneDrive\Pulpit\programowanie w c\Archive\GPIO_7_timer\Led.h)(0x5E684712)
-F (.\keyboard.h)(0x5E684710)()
-F (.\Led.h)(0x5E684712)()
-F (.\timer.c)(0x5E7267E1)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\timer.o --omf_browse .\timer.crf --depend .\timer.d)
+I (C:\Users\Blue\Desktop\programowanie w c\Archive\GPIO_7_timer\timer.h)(0x5EA85AA6)
+F (.\timer.h)(0x5EA85AA6)()
+F (.\7.1.c)(0x5E9FF7A5)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\7.1.o --omf_browse .\7.1.crf --depend .\7.1.d)
+I (C:\Users\Blue\Desktop\programowanie w c\Archive\GPIO_7_timer\Led.h)(0x5E9FF8C7)
 I (C:\Keil\ARM\Inc\Philips\LPC21xx.H)(0x51C80D9C)
-I (C:\Users\dawid\OneDrive\Pulpit\programowanie w c\Archive\GPIO_7_timer\timer.h)(0x5E713C8E)
-F (.\timer.h)(0x5E713C8E)()
+I (C:\Users\Blue\Desktop\programowanie w c\Archive\GPIO_7_timer\keyboard.h)(0x5E685520)
+I (C:\Users\Blue\Desktop\programowanie w c\Archive\GPIO_7_timer\timer.h)(0x5EA85AA6)

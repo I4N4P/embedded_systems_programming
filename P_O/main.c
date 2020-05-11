@@ -1,268 +1,194 @@
-#include <LPC21xx.H>
 
-#define NULL 0 
-#define MASKA 0x0F 
+#include <stdio.h>
+#include <string.h>
+#include "Strings1.h"
+#include "String2.h"
 
-  
+/*void TestOf_CopyString(void) {
 
-enum Result {OK, ERROR};
+	printf("CopyString\n\n ");
 
-enum CompResult {DIFFERENT, EQUAL}; 
-  
-void CopyString(char pcSource[], char pcDestination[]){ 
-
-		unsigned char ucArrayIndex; 
-
-		for(ucArrayIndex = 0; pcSource[ucArrayIndex]!=NULL; ucArrayIndex++){ 
-				pcDestination[ucArrayIndex] = pcSource[ucArrayIndex]; 
-		} 
-		pcDestination[ucArrayIndex] = NULL; 
-} 
-
-
-enum CompResult eCompareString(char pcStr1[], char pcStr2[]){ 
-
-		unsigned char ucArrayIndex; 
-
-		for(ucArrayIndex=0;(pcStr1[ucArrayIndex]==pcStr2[ucArrayIndex]);ucArrayIndex++){
-				if((pcStr1[ucArrayIndex]==NULL)&&(pcStr2[ucArrayIndex]==NULL)){
-						return EQUAL;; 
-				} 
-		} 
-		return DIFFERENT; 
-} 
-
-
-void AppendString(char pcSourceStr[],char pcDestinationStr[]){ 
-
-		unsigned char ucArrayIndex; 
-
-    for(ucArrayIndex = 0; pcDestinationStr[ucArrayIndex]!=NULL; ucArrayIndex++){}
-		CopyString(pcSourceStr, pcDestinationStr + ucArrayIndex); 
-} 
-
-
-void ReplaceCharactersInString(char pcString[],char cOldChar,char cNewChar){ 
-
-    unsigned char ucArrayIndex; 
+	printf("Test 1 - ");
+	//oba tej samej dlugosci
+	char cAfterCopy1[]="fghij";
+	char cAfterCopy2[]="uwaga";
+	CopyString(cAfterCopy2, cAfterCopy1);
+	if (strcmp("uwaga", cAfterCopy1)==0){
+		printf("OK\n\n ");
+	}
+	else{
+		printf("Error\n\n ");	
+	}
 	
-    for(ucArrayIndex = 0; pcString[ucArrayIndex]!=NULL; ucArrayIndex++){ 
-        if(pcString[ucArrayIndex] == cOldChar){ 
-						pcString[ucArrayIndex] = cNewChar; 
-				} 
-    } 
-} 
+	printf("Test 2 - ");
+	//pierwszy wyraz pusty
+	char cAfterCopy3[]="fghij";
+	char cAfterCopy4[]="";
+	CopyString(cAfterCopy4, cAfterCopy3);
+	if (strcmp("", cAfterCopy3)==0){
+		printf("OK\n\n ");
+	}
+	else{
+			printf("Error\n\n ");
+	}
+}
+printf("Test 3 - ");
+	//pierwszy wyraz krotszy
+	char cAfterCopy5[]="fghij";
+	char cAfterCopy6[]="twoj";
+	CopyString(cAfterCopy6, cAfterCopy2);
+	if (strcmp("twoj", cAfterCopy2)==0){
+		printf("OK\n\n "); 
+	}
+	else{
+		printf("Error\n\n ");	
+	}
+*/
+//----------------------------------------------------------
+/*void TestOf_eCompareString(void) {
 
-void UIntToHexStr(unsigned int uiValue, char pcStr[]){ 
+	printf("eCompareString\n\n ");
 
-    unsigned char ucNibbleCounter; 
-    unsigned char ucCurrentNibble; 
+	printf("Test 1 - ");
+	//takie same, ta sama dlugosc
+	if (eCompareString("uwaga", "uwaga")==EQUAL) printf("OK\n\n "); else printf("Error\n\n ");
 
-    pcStr[0]='0'; 
-    pcStr[1]='x'; 
-    pcStr[6]=NULL; 
+	printf("Test 2 - ");
+	//rozne, ta sama dlugosc
+	if (eCompareString("uwaga", "ubran")==DIFFERENT) printf("OK\n\n "); else printf("Error\n\n ");
 
-    for(ucNibbleCounter=0; ucNibbleCounter<4; ucNibbleCounter++){ 
-				ucCurrentNibble=(uiValue >> (ucNibbleCounter*4))&MASKA; 
-				if(ucCurrentNibble<10){ 
-						pcStr[5-ucNibbleCounter] = '0'+ucCurrentNibble; 
-				} 
-				else{ 
-						pcStr[5-ucNibbleCounter] = 'A'+(ucCurrentNibble-10);
-				} 
-		} 
-} 
+	printf("Test 3 - ");
+	///pierwszy pusty
+	if (eCompareString("", "ubran")==DIFFERENT) printf("OK\n\n "); else printf("Error\n\n ");
 
+	printf("Test 4 - ");
+	//drugi pusty
+	if (eCompareString("uwaga", "")==DIFFERENT) printf("OK\n\n "); else printf("Error\n\n ");
+	
+	printf("Test 5 - ");
+	///oba puste
+	if (eCompareString("", "")==EQUAL) printf("OK\n\n "); else printf("Error\n\n ");
+	
+	printf("Test 6 - ");
+	///drugi dluzszy
+	if (eCompareString("uwaga", "nieobecny")==DIFFERENT) printf("OK\n\n\n"); else printf("Error\n\n\n");
+}
+//----------------------------------------------------------
+void TestOf_AppendString(void) {
 
-enum Result eHexStringToUInt(char pcStr[],unsigned int *puiValue){ 
+	printf("AppendString\n\n ");
 
-    unsigned char ucArrayIndex; 
-    unsigned char ucCurrentChar; 
+	printf("Test 1 - ");
+	//dowolne
+	char cAppendingTest1[]="ubran";
+	AppendString("uwaga", cAppendingTest1);
+	if (strcmp(cAppendingTest1, "ubranuwaga")==0) printf("OK\n\n "); else printf("Error\n\n ");
+	
+	printf("Test 2 - ");
+	//pierwszy pusty
+	char cAppendingTest2[]="ubran";
+	AppendString("", cAppendingTest2);
+	if (strcmp(cAppendingTest2, "ubran")==0) printf("OK\n\n "); else printf("Error\n\n ");
+	
+	printf("Test 3 - ");
+	//drugi pusty
+	char cAppendingTest3[]="";
+	AppendString("uwaga", cAppendingTest3);
+	if (strcmp(cAppendingTest3, "uwaga")==0) printf("OK\n\n\n"); else printf("Error\n\n\n");
+}
+//----------------------------------------------------------
+void TestOf_ReplaceCharactersInString(void) {
+
+	printf("ReplaceCharactersInString\n\n ");
+
+	printf("Test 1 - ");
+	//rozne znaki
+	char cOryginal1[]="Tekst do zamiany znaku";
+	ReplaceCharactersInString(cOryginal1, 'a', 'A');
+	if (strcmp(cOryginal1, "Tekst do zAmiAny znAku")==0) printf("OK\n\n "); else printf("Error\n\n ");
+	
+	printf("Test 2 - ");
+	//spacja na NULL
+	char cOryginal2[]="Tekst do zamiany znaku";
+	ReplaceCharactersInString(cOryginal2, ' ', '\0');
+	if (strcmp(cOryginal2, "Tekst\0do\0zamiany\0znaku")==0) printf("OK\n\n\n"); else printf("Error\n\n\n");
+}
+//----------------------------------------------------------
+void TestOf_UIntToHexStr(void) {
+	
+	printf("UIntToHexStr\n\n ");
+
+	printf("Test 1 - ");
+	//krance przedzialow, 0,9,10,15
+	char cAfterConverion[6];
+	UIntToHexStr(0x09AF, cAfterConverion);
+	if (strcmp(cAfterConverion, "0x09AF")==0) printf("OK\n\n "); else printf("Error\n\n ");
+	
+	printf("Test 2 - ");
+	//zera po x w stringu
+	UIntToHexStr(0x34, cAfterConverion);
+	if (strcmp(cAfterConverion, "0x0034")==0) printf("OK\n\n\n"); else printf("Error\n\n\n");
+}
+//----------------------------------------------------------
+void TestOf_eHexStringToUInt() {
+	
+	enum Result iReturnResult;
+	unsigned int uiReturnValue;
 		
-		*puiValue=0; 
-
-		if((pcStr[0]!='0') || (pcStr[1]!='x') || (pcStr[2]==NULL)){ 
-				return ERROR; 
-		} 
-		for(ucArrayIndex=2; ucArrayIndex!=NULL; ucArrayIndex++){ 
-				ucCurrentChar = pcStr[ucArrayIndex]; 
-				if(ucArrayIndex==6){ 
-						return ERROR; 
-				} 
-				*puiValue = *puiValue << 4;
-        if((ucCurrentChar<= 'F') && (ucCurrentChar>= 'A')){ 
-						ucCurrentChar=ucCurrentChar-'A'+10; 
-				} 
-				else if((ucCurrentChar <= '9') && (ucCurrentChar>= '0')){ 
-						ucCurrentChar=ucCurrentChar-'0'; 
-				} 
-				else{ 
-						return ERROR; 
-				} 
-				*puiValue = (*puiValue) | ucCurrentChar; 
-		} 
-		return OK; 
-
-} 
-
-  
-
-void AppendUIntToString(unsigned int uiValue, char pcDestinationStr[]){ 
-
-    unsigned char ucArrayIndex;   
-
-    for(ucArrayIndex=0; pcDestinationStr[ucArrayIndex]!=NULL; ucArrayIndex++){} 
-		UIntToHexStr(uiValue, &pcDestinationStr[ucArrayIndex]); 
-
-} 
-#define MAX_TOKEN_NR 3 
-#define NULL 0 
-#define MAX_KEYWORD_NR 3 
-#define MAX_KEYWORD_STRING_LTH 10 
- 
-enum KeywordCode {LD, ST, RST}; 
-
-union TokenValue{ 
-    enum KeywordCode eKeyword; 
-    unsigned int uiNumber; 
-    char* pcString; 
-}; 
-  
-enum TokenType {KEYWORD, NUMBER, STRING}; 
-  
-struct Token{ 
-    enum  TokenType  eType; 
-    union TokenValue uValue; 
-};  
-
-struct Token asToken[MAX_TOKEN_NR]; 
-
-  
-
-struct Keyword{ 
-    enum KeywordCode eCode; 
-    char cString[MAX_KEYWORD_STRING_LTH + 1]; 
-}; 
-
-  
-
-struct Keyword asKeywordList[MAX_KEYWORD_NR]={ 
-    {RST,"reset"}, 
-    {LD, "load" }, 
-    {ST, "store"} 
-}; 
-  
-
-unsigned char ucTokenNr; 
-
-enum WorkType{TOKEN, DELIMITER};  
-
-unsigned char ucFindTokensInString(char *pcString){ 
-
-    enum WorkType eTryb=DELIMITER; 
-
-    unsigned char ucTokenNr=0; 
-    unsigned char ucArrayIndex; 
-    unsigned char ucCurrentChar; 
-  
-     for(ucArrayIndex=0;;ucArrayIndex++){ 
-        ucCurrentChar=pcString[ucArrayIndex]; 
-        switch(eTryb){ 
-            case TOKEN: 
-            { 
-                if(ucTokenNr==MAX_TOKEN_NR){ 
-                    return ucTokenNr; 
-                } 
-                else if(ucCurrentChar==NULL){ 
-                    return ucTokenNr; 
-                } 
-                else if(ucCurrentChar!=' '){ 
-                   eTryb=TOKEN; 
-                } 
-                else{ 
-                    eTryb=DELIMITER; 
-                } 
-                break; 
-            } 
-            case DELIMITER: 
-            { 
-                if(ucCurrentChar==NULL){ 
-                    return ucTokenNr; 
-                } 
-
-                else if(ucCurrentChar==' '){ 
-                  eTryb=DELIMITER; 
-                } 
-
-                else{ 
-                    eTryb=TOKEN; 
-                    asToken[ucTokenNr].uValue.pcString=pcString+ucArrayIndex; 
-                    ucTokenNr++; 
-                } 
-
-                break; 
-            } 
-        } 
-    } 
-} 
-
-//enum Result {OK, ERROR}; 
-
-  
-
-enum Result eStringToKeyword (char pcStr[],enum KeywordCode *peKeywordCode){ 
-  
-    unsigned char ucArrayIndex;   
-
-    for(ucArrayIndex=0; ucArrayIndex< MAX_KEYWORD_NR; ucArrayIndex++){ 
-
-        if(EQUAL == eCompareString(asKeywordList[ucArrayIndex].cString, pcStr)){ 
-            *peKeywordCode= asKeywordList[ucArrayIndex].eCode; 
-            return OK; 
-       } 
-    } 
-    return ERROR; 
-} 
-
-
-void DecodeTokens(void){ 
-
-    unsigned char ucArrayIndex; 
-    struct Token *psCurrentToken; 
-    unsigned int uiTokenValue; 
-    enum KeywordCode eKodTokena; 
-
-    for(ucArrayIndex = 0; ucArrayIndex < ucTokenNr; ucArrayIndex++){ 
-        psCurrentToken = &asToken[ucArrayIndex]; 
-        if(OK == eHexStringToUInt(psCurrentToken->uValue.pcString, &uiTokenValue)){ 
-            psCurrentToken->eType = NUMBER; 
-            psCurrentToken->uValue.uiNumber= uiTokenValue; 
-        } 
-        else if(OK== eStringToKeyword(psCurrentToken->uValue.pcString, &eKodTokena)){ 
-            psCurrentToken->eType=KEYWORD; 
-            psCurrentToken->uValue.eKeyword=eKodTokena; 
-        } 
-        else{ 
-            psCurrentToken->eType=STRING; 
-        } 
-    } 
-} 
-
-void DecodeMsg(char *pcString){ 
-    ucTokenNr= ucFindTokensInString(pcString); 
-    ReplaceCharactersInString(pcString, ' ', NULL); 
-    DecodeTokens(); 
-} 
-
- 
-
+	printf("eHexStringToUInt\n\n ");
+	
+	printf("Test 1 - ");
+	//krance przedzialow
+	iReturnResult = eHexStringToUInt("0x09AF", &uiReturnValue);
+	if (iReturnResult==OK) printf("OK\n\n "); else printf("Error\n\n ");
+	
+	printf("Test 2 - ");
+	//za krotki
+	iReturnResult = eHexStringToUInt("0x", &uiReturnValue);
+	if (iReturnResult==ERROR) printf("OK\n\n "); else printf("Error\n\n ");
+	
+	printf("Test 3 - ");
+	//za dlugi
+	iReturnResult = eHexStringToUInt("0xFFDC2", &uiReturnValue);
+	if (iReturnResult==ERROR) printf("OK\n\n "); else printf("Error\n\n ");
+	
+	printf("Test 4 - ");
+	//poczatek rozny od 0x
+	iReturnResult = eHexStringToUInt("klhfcsd", &uiReturnValue);
+	if (iReturnResult==ERROR) printf("OK\n\n "); else printf("Error\n\n ");
+	
+	printf("Test 5 - ");
+	//mniej znakow
+	iReturnResult = eHexStringToUInt("0x034", &uiReturnValue);
+	if (iReturnResult==OK) printf("OK\n\n\n"); else printf("Error\n\n\n");
+}
+//----------------------------------------------------------
+void TestOf_AppendUIntToString() {	
+	
+	printf("AppendUIntToString\n\n ");
+	
+	printf("Test 1 - ");
+	//niepusty string, dopisywanie od NULLa
+	char cOryginal1[]="Jakis tekst";
+	AppendUIntToString(0x1234,cOryginal1);
+	if (strcmp(cOryginal1,"Jakis tekst0x1234")==0) printf("OK\n\n "); else printf("Error\n\n ");
+	
+	printf("Test 2 - ");
+	//pusty string
+	char cOryginal2[]="";
+	AppendUIntToString(0x1234,cOryginal2);
+	if (strcmp(cOryginal2,"0x1234")==0) printf("OK\n\n\n"); else printf("Error\n\n\n");
+}
+*/
+char  Source[]  =  "Ala ma Kota";
+char Destination[]="ALA MA KOTA";
+	
 int main(){
-	char tablica[20]="Ala ma Kota";
-	char tablica2[20]="Beata ma Psa";
+	
 	while(1){
 
 	
-		CopyString(tablica,tablica2);
+		CopyString(Source,Destination);
 
 	}
 }

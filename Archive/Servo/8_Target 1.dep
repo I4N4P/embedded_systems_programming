@@ -1,23 +1,23 @@
 Dependencies for Project '8', Target 'Target 1': (DO NOT MODIFY !)
-F (.\Startup.s)(0x51C80D6E)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips--list .\startup.lst --xref -o .\startup.o --depend .\startup.d)
-F (.\Led.c)(0x5E72B0B3)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\led.o --omf_browse .\led.crf --depend .\led.d)
+F (.\Startup.s)(0x51C81B7E)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips--list .\startup.lst --xref -o .\startup.o --depend .\startup.d)
+F (.\Led.c)(0x5E72BEC4)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\led.o --omf_browse .\led.crf --depend .\led.d)
 I (C:\Keil\ARM\Inc\Philips\LPC21xx.H)(0x51C80D9C)
-I (C:\Users\dawid\OneDrive\Pulpit\programowanie w c\Current\Led.h)(0x5E728C35)
-F (.\Led.h)(0x5E728C35)()
-F (.\timer_interrupts.c)(0x5E729278)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\timer_interrupts.o --omf_browse .\timer_interrupts.crf --depend .\timer_interrupts.d)
+I (C:\Users\Blue\Desktop\programowanie w c\Archive\Servo\Led.h)(0x5E729A46)
+F (.\Led.h)(0x5E729A46)()
+F (.\timer_interrupts.c)(0x5E72A08A)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\timer_interrupts.o --omf_browse .\timer_interrupts.crf --depend .\timer_interrupts.d)
 I (C:\Keil\ARM\Inc\Philips\LPC21xx.H)(0x51C80D9C)
-I (C:\Users\dawid\OneDrive\Pulpit\programowanie w c\Current\led.h)(0x5E728C35)
-I (C:\Users\dawid\OneDrive\Pulpit\programowanie w c\Current\timer_interrupts.h)(0x5E7292B7)
-F (.\timer_interrupts.h)(0x5E7292B7)()
-F (.\keyboard.h)(0x5E684710)()
-F (.\Keyboard.c)(0x5E72B0B3)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\keyboard.o --omf_browse .\keyboard.crf --depend .\keyboard.d)
+I (C:\Users\Blue\Desktop\programowanie w c\Archive\Servo\led.h)(0x5E729A46)
+I (C:\Users\Blue\Desktop\programowanie w c\Archive\Servo\timer_interrupts.h)(0x5E72A0C8)
+F (.\timer_interrupts.h)(0x5E72A0C8)()
+F (.\keyboard.h)(0x5E685520)()
+F (.\Keyboard.c)(0x5E72BEC4)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\keyboard.o --omf_browse .\keyboard.crf --depend .\keyboard.d)
 I (C:\Keil\ARM\Inc\Philips\LPC21xx.H)(0x51C80D9C)
-I (C:\Users\dawid\OneDrive\Pulpit\programowanie w c\Current\keyboard.h)(0x5E684710)
-F (.\servo.c)(0x5E72B231)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\servo.o --omf_browse .\servo.crf --depend .\servo.d)
+I (C:\Users\Blue\Desktop\programowanie w c\Archive\Servo\keyboard.h)(0x5E685520)
+F (.\servo.c)(0x5E72C042)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\servo.o --omf_browse .\servo.crf --depend .\servo.d)
 I (C:\Keil\ARM\Inc\Philips\LPC21xx.H)(0x51C80D9C)
-I (C:\Users\dawid\OneDrive\Pulpit\programowanie w c\Current\servo.h)(0x5E72B231)
-I (C:\Users\dawid\OneDrive\Pulpit\programowanie w c\Current\timer_interrupts.h)(0x5E7292B7)
-I (C:\Users\dawid\OneDrive\Pulpit\programowanie w c\Current\led.h)(0x5E728C35)
-I (C:\Users\dawid\OneDrive\Pulpit\programowanie w c\Current\Keyboard.h)(0x5E684710)
-F (.\servo.h)(0x5E72B231)()
-F (.\9.4.c)(0x5E72B373)()
+I (C:\Users\Blue\Desktop\programowanie w c\Archive\Servo\servo.h)(0x5E72C042)
+I (C:\Users\Blue\Desktop\programowanie w c\Archive\Servo\timer_interrupts.h)(0x5E72A0C8)
+I (C:\Users\Blue\Desktop\programowanie w c\Archive\Servo\led.h)(0x5E729A46)
+I (C:\Users\Blue\Desktop\programowanie w c\Archive\Servo\Keyboard.h)(0x5E685520)
+F (.\servo.h)(0x5E72C042)()
+F (.\9.4.c)(0x5E72C184)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\9.4.o --omf_browse .\9.4.crf --depend .\9.4.d)

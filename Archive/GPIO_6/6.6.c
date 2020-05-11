@@ -1,51 +1,8 @@
-#include<LPC21xx.H>
 #include"Led.h"
 #include"keyboard.h"
 
-#define LED0_bm (1<<16)
-#define LED1_bm (1<<17)
-#define LED2_bm (1<<18)
-#define LED3_bm (1<<19)
-
-enum LedState{RUN_RIGHT,STOP,RUN_LEFT};
+enum LedState{RUN_RIGHT,STOP,RUN_LEFT,DIODE_BLINKING,DIODE_STATE_CHECK};
 enum LedState eLedState = STOP;
-
-void LedStep(int StepDirection){
-	
-	static unsigned int uiNrDiody=0;
-	
-	switch(StepDirection){
-		case LEFT:
-			uiNrDiody++;
-			break;
-		case RIGHT:
-			uiNrDiody--;
-			break;
-		default:
-			break;
-	}
-	LedOn(uiNrDiody%4);
-}
-
-void LedOn(unsigned char ucLedindeks){
-	IO1CLR=LED0_bm|LED1_bm|LED2_bm|LED3_bm;
-	switch(ucLedindeks){
-		case 0:
-			IO1SET=LED0_bm;
-			break;
-		case 1:
-			IO1SET=LED1_bm;
-			break;
-		case 2:
-			IO1SET=LED2_bm;
-			break;
-		case 3:
-			IO1SET=LED3_bm;
-			break;
-		default:
-			break;
-	}
-}
 
 
 void Delay(float fTime){
@@ -57,6 +14,9 @@ void Delay(float fTime){
 
 
 int main(){
+	
+	int iBlinkingCounter=0;
+	
 	KeyboardInit();
 	LedInit();
 	
@@ -69,27 +29,43 @@ int main(){
 					}	
 					else if(eKeyBoardRead()==BUTTON_2){
 						eLedState = RUN_RIGHT;
+					}	
+					else if(eKeyBoardRead()==BUTTON_3){
+						eLedState = DIODE_BLINKING;
 					}		
 					break;
 			case RUN_LEFT:
-				if(eKeyBoardRead()==BUTTON_1){
-					eLedState = STOP;
-				}	
-				else{
 					LedStepLeft();
-					Delay(500);
-				}
+					if(eKeyBoardRead()==BUTTON_1){
+						eLedState = STOP;
+					}	
 				break;
-				case RUN_RIGHT:
-				if(eKeyBoardRead()==BUTTON_1){
-					eLedState = STOP;
-				}	
-				else{
+			case RUN_RIGHT:
 					LedStepRight();
-					Delay(500);
-				}
+					if(eKeyBoardRead()==BUTTON_1){
+						eLedState = STOP;
+					}	
+				break;
+			case DIODE_BLINKING:
+					if((iBlinkingCounter%2)==0){
+						LedOn(0);	
+					}
+					else{
+						LedOn(5); 
+					}
+					eLedState = DIODE_STATE_CHECK;
+					iBlinkingCounter++;
+			   break;
+			case DIODE_STATE_CHECK:
+					if((iBlinkingCounter>=20)||(eKeyBoardRead()==BUTTON_1)){
+						iBlinkingCounter=0;
+						eLedState = STOP;
+					}else{
+						eLedState = DIODE_BLINKING;
+					}
 				break;
 		}
-	Delay(50);	
+		Delay(50);	
 	}
 }
+ 

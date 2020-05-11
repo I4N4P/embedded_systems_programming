@@ -6,8 +6,8 @@
 
 void Automat(){
 			
-enum LedState{RUN_RIGHT,STOP,RUN_LEFT};
-enum LedState eLedState=STOP;
+		enum LedState{RUN_RIGHT,STOP,RUN_LEFT};
+		enum LedState eLedState=STOP;
 
 		if(eKeyBoardRead()==BUTTON_1){
 					eLedState = STOP;
