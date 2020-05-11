@@ -1,0 +1,6 @@
+VICVectCntln i VICVectAddrn, gdzie n przyjmuje wartości od 0 do 15. VICVectCntln służy do przypisania źródła przerwania do slotu n. Bity 0..4 służą do przypisania przerwania do slotu, a bit 5 - do uaktywnienia slotu.
+
+16slotów
+32 kanały
+
+VICIntEnable This register controls which of the 32 interrupt requests and software interrupts contribute to FIQ or IRQ.
