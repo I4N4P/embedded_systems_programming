@@ -1,13 +1,13 @@
 Dependencies for Project 'Scechura_5.2', Target 'Target 1': (DO NOT MODIFY !)
 F (.\Startup.s)(0x5E685530)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips--list .\startup.lst --xref -o .\startup.o --depend .\startup.d)
-F (.\main.c)(0x5E9FE926)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\main.o --omf_browse .\main.crf --depend .\main.d)
-I (C:\Users\Blue\Desktop\programowanie w c\Archive\GPIO_5\Led.h)(0x5E9FE6C6)
-I (C:\Users\Blue\Desktop\programowanie w c\Archive\GPIO_5\keyboard.h)(0x5E8CA176)
-F (.\Led.c)(0x5E9FE6EF)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\led.o --omf_browse .\led.crf --depend .\led.d)
-I (C:\Keil\ARM\Inc\Philips\LPC21xx.H)(0x51C80D9C)
-I (C:\Users\Blue\Desktop\programowanie w c\Archive\GPIO_5\Led.h)(0x5E9FE6C6)
-F (.\Led.h)(0x5E9FE6C6)()
-F (.\Keyboard.c)(0x5E72A6F6)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\keyboard.o --omf_browse .\keyboard.crf --depend .\keyboard.d)
-I (C:\Keil\ARM\Inc\Philips\LPC21xx.H)(0x51C80D9C)
-I (C:\Users\Blue\Desktop\programowanie w c\Archive\GPIO_5\keyboard.h)(0x5E8CA176)
-F (.\keyboard.h)(0x5E8CA176)()
+F (.\main.c)(0x5EB99037)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\main.o --omf_browse .\main.crf --depend .\main.d)
+I (C:\Users\dawid\OneDrive\Pulpit\Programowanie_System-w_Wbudowanych\Archive\GPIO_5\Led.h)(0x5EB99037)
+I (C:\Users\dawid\OneDrive\Pulpit\Programowanie_System-w_Wbudowanych\Archive\GPIO_5\keyboard.h)(0x5EB99037)
+F (.\Led.c)(0x5EB99037)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\led.o --omf_browse .\led.crf --depend .\led.d)
+I (C:\Keil\ARM\Inc\Philips\LPC21xx.H)(0x51C81BAC)
+I (C:\Users\dawid\OneDrive\Pulpit\Programowanie_System-w_Wbudowanych\Archive\GPIO_5\Led.h)(0x5EB99037)
+F (.\Led.h)(0x5EB99037)()
+F (.\Keyboard.c)(0x5E72A6F5)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\keyboard.o --omf_browse .\keyboard.crf --depend .\keyboard.d)
+I (C:\Keil\ARM\Inc\Philips\LPC21xx.H)(0x51C81BAC)
+I (C:\Users\dawid\OneDrive\Pulpit\Programowanie_System-w_Wbudowanych\Archive\GPIO_5\keyboard.h)(0x5EB99037)
+F (.\keyboard.h)(0x5EB99037)()

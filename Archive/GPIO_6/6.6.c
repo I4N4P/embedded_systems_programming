@@ -53,8 +53,8 @@ int main(){
 					else{
 						LedOn(5); 
 					}
-					eLedState = DIODE_STATE_CHECK;
 					iBlinkingCounter++;
+					eLedState = DIODE_STATE_CHECK;
 			   break;
 			case DIODE_STATE_CHECK:
 					if((iBlinkingCounter>=20)||(eKeyBoardRead()==BUTTON_1)){
