@@ -1,0 +1,23 @@
+#include<LPC21xx.H>
+
+#define LED0_bm 1<<16
+#define LED3_bm 1<<19
+
+int iCzasSwiecenia=50;
+
+void Delay(int iTime){
+int iLicznikPetli;
+iTime=iTime*1277.245693655213;
+for(iLicznikPetli=0;iLicznikPetli<iTime;iLicznikPetli++){};
+}
+
+int main(){
+	IO1DIR=LED3_bm;
+	
+	while(1){
+		IO1SET=LED3_bm;
+		Delay(iCzasSwiecenia);
+		IO1CLR=LED3_bm;
+		Delay(iCzasSwiecenia);
+	}
+}

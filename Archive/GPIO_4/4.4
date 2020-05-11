@@ -1,0 +1,17 @@
+#include<LPC21xx.H>
+
+void Delay(float time){
+int i;
+time=time*1277.245693655213;
+for(i=0;i<time;i++){};
+}
+
+int main(){
+	IO1DIR=1<<16;
+	
+	while(1){
+		IO1SET=1<<16;
+		Delay(1000);
+		IO1CLR=1<<16;
+	}
+}

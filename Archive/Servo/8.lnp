@@ -1,0 +1,11 @@
+--cpu ARM7TDMI
+".\startup.o"
+".\led.o"
+".\timer_interrupts.o"
+".\keyboard.o"
+".\8.5.o"
+".\servo.o"
+--strict --scatter ".\8.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\8.map" -o .\8.axf

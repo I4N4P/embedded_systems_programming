@@ -1,0 +1,12 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\Blue\OneDrive\Pulpit\programowanie w c\Archive\GPIO_5\Scechura_5.2.uvproj
+Project File Date:  04/06/2020
+
+<h2>Output:</h2>
+Build target 'Target 1'
+error - cannot create command input file '.\Scechura_5.lnp'
+Target not created

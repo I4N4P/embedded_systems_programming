@@ -1,0 +1,6 @@
+Dependencies for Project 'Scechura_4.1', Target 'Target 1': (DO NOT MODIFY !)
+F (.\Startup.s)(0x5E684750)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips--list .\startup.lst --xref -o .\startup.o --depend .\startup.d)
+F (.\4.26.c)(0x5E68473C)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\4.26.o --omf_browse .\4.26.crf --depend .\4.26.d)
+I (C:\Keil\ARM\Inc\Philips\LPC21xx.H)(0x51C80D9C)
+F (.\4.20.c)(0x5E714378)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\4.20.o --omf_browse .\4.20.crf --depend .\4.20.d)
+I (C:\Keil\ARM\Inc\Philips\LPC21xx.H)(0x51C80D9C)
