@@ -15,7 +15,7 @@ void Delay(float fTime){
 
 int main(){
 	
-	int iBlinkingCounter=0;
+	unsigned int ucBlinkingCounter=0;
 	
 	KeyboardInit();
 	LedInit();
@@ -47,23 +47,30 @@ int main(){
 					}	
 				break;
 			case DIODE_BLINKING:
-					if((iBlinkingCounter%2)==0){
-						LedOn(0);	
+			{
+				if( eKeyBoardRead() == BUTTON_1)
+				{
+					eLedState = STOP;
+				}
+				else if ( ucBlinkingCounter < 20 )
+				{
+					if( (ucBlinkingCounter%2) == 0 )
+					{
+						LedOn(1);
 					}
-					else{
-						LedOn(5); 
+					else 
+					{
+						LedOn(5);
 					}
-					iBlinkingCounter++;
-					eLedState = DIODE_STATE_CHECK;
-			   break;
-			case DIODE_STATE_CHECK:
-					if((iBlinkingCounter>=20)||(eKeyBoardRead()==BUTTON_1)){
-						iBlinkingCounter=0;
-						eLedState = STOP;
-					}else{
-						eLedState = DIODE_BLINKING;
-					}
-				break;
+					ucBlinkingCounter++;
+					eLedState=DIODE_BLINKING;
+				}
+				else 
+				{
+					eLedState = STOP;
+				}
+			break;
+			}
 		}
 		Delay(50);	
 	}
