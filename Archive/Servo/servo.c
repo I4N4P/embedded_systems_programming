@@ -1,88 +1,110 @@
 #include <LPC21xx.H>
-#include "servo.h"
-#include "timer_interrupts.h"
 #include "led.h"
-#include "Keyboard.h"
-	
-#define DETECTOR_bm (1<<10)
+#include "timer_interrupts.h"
+#include "servo.h"
 
+#define DETECTOR_bm (1<<7)
+
+enum State {ACTIVE, INACTIVE};
+
+enum ServoState {CALLIB, IDDLE, IN_PROGRESS,SET_OFFSET};
+
+struct Servo{
+	enum ServoState eState;
+	unsigned int uiCurrentPosition;
+	unsigned int uiDesiredPosition;
+	unsigned int uiOffset;
+};
 
 struct Servo sServo;
 
-void DetectorInit(){
-	IO0DIR=IO0DIR&(~DETECTOR_bm);
+/////////////////////////////////
+
+void DetectorInit(void){
+	IO0DIR&=(~DETECTOR_bm);
 }
 
-enum DetectorState eReadDetector(){
-	if((IO0PIN&DETECTOR_bm)==0){
-		
-		return ACTIVE;
-	}
-	else {
-		return INACTIVE;
+enum State eReadDetector (void){
+	if((IO0PIN&DETECTOR_bm) == 0){
+		return(ACTIVE);
+	}else{
+		return(INACTIVE);
 	}
 }
 
-
-void Automat(){
-		sServo.eState = IDLE;	
-		if(sServo.eState == CALLIB){
-				
-		}	
-		else if(sServo.uiCurrentPosition==sServo.uiDesiredPosition){
-					sServo.eState = IDLE;
-		}	
-		else if(sServo.uiCurrentPosition!=sServo.uiDesiredPosition){
-				sServo.eState=IN_PROGRESS;
-		}
-		
-		switch(sServo.eState){
-			case IDLE:
-					
-					break;
-			case IN_PROGRESS:
-				if(sServo.uiCurrentPosition < sServo.uiDesiredPosition){
-					Led_StepRight();
-					sServo.uiCurrentPosition++;
-				}
-				else if(sServo.uiCurrentPosition > sServo.uiDesiredPosition){
-					Led_StepLeft();
-					sServo.uiCurrentPosition--;
-				}
-				else{
-					sServo.eState = IDLE;
-				}
-				
-				break;
-				case CALLIB:
-					if(eReadDetector()==ACTIVE){
-						sServo.eState=IDLE;
-						sServo.uiCurrentPosition=0;
-						sServo.uiDesiredPosition=0;
-					}
-					else{
-						Led_StepRight();
-					}
-				break;
-				default:
-				break;
-					
-		}
-	}
-void ServoCallib(){
+void ServoCallib(void){
 	sServo.eState = CALLIB;
-}
-void ServoInit(unsigned int uiServoFrequency){
-	
-	unsigned int time;
-	
-	ServoCallib();
-	LedInit();
-	DetectorInit();
-	time=1000/uiServoFrequency;
-	Timer0Interrupts_Init(time,&Automat);
+	while(eReadDetector()==INACTIVE){
+	}
 }
 
 void ServoGoTo(unsigned int uiPosition){
-	sServo.uiDesiredPosition=uiPosition;
+	sServo.eState = IN_PROGRESS;
+	sServo.uiDesiredPosition= uiPosition;
 }
+	
+/////////////////////////////////
+
+void Automat(){
+		
+	switch(sServo.eState){
+		
+		case CALLIB:
+			if(eReadDetector()==INACTIVE){
+				LedStepLeft();
+			}	
+			else {
+				sServo.uiDesiredPosition=0;
+				sServo.uiCurrentPosition=0;
+				sServo.eState=SET_OFFSET;
+			}
+			break;	
+		
+		case SET_OFFSET:	
+			sServo.uiOffset=12;
+			
+			if(sServo.uiCurrentPosition<sServo.uiOffset){
+				LedStepLeft();
+				sServo.uiCurrentPosition++;
+			}
+			else{
+				sServo.uiCurrentPosition=0;
+				sServo.eState=IDDLE;
+				}
+				break;
+		
+		case IDDLE: 
+			if (sServo.uiCurrentPosition == sServo.uiDesiredPosition){
+				sServo.eState = IDDLE;
+			}
+			else {
+				sServo.eState=IN_PROGRESS;
+			}
+			break;
+					
+		case IN_PROGRESS: 
+			if(sServo.uiCurrentPosition > sServo.uiDesiredPosition){
+				sServo.eState = IN_PROGRESS;
+				LedStepLeft();
+				sServo.uiCurrentPosition--;
+			}
+			else if(sServo.uiCurrentPosition < sServo.uiDesiredPosition){
+				sServo.eState = IN_PROGRESS;
+				LedStepRight();
+				sServo.uiCurrentPosition++;
+			}
+			else{
+				sServo.eState = IDDLE;
+			}
+			break;
+	}
+}
+void ServoInit(unsigned int uiServoFrequency){
+	DetectorInit();
+	LedInit();
+	Timer0Interrupts_Init(1000000/uiServoFrequency ,&Automat);
+	ServoCallib();
+}
+
+
+

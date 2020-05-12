@@ -1,0 +1,23 @@
+Dependencies for Project '8', Target 'Target 1': (DO NOT MODIFY !)
+F (.\Startup.s)(0x5EBADE36)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips--list .\startup.lst --xref -o .\startup.o --depend .\startup.d)
+F (.\Led.c)(0x5EBAE4E1)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\led.o --omf_browse .\led.crf --depend .\led.d)
+I (C:\Keil\ARM\Inc\Philips\LPC21xx.H)(0x51C81BAC)
+I (C:\Users\dawid\OneDrive\Pulpit\Programowanie_System-w_Wbudowanych_v2\Archive\Servo2\led.h)(0x5EBAE4EC)
+F (.\Led.h)(0x5EBAE4EC)()
+F (.\timer_interrupts.c)(0x5EBAE511)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\timer_interrupts.o --omf_browse .\timer_interrupts.crf --depend .\timer_interrupts.d)
+I (C:\Keil\ARM\Inc\Philips\LPC21xx.H)(0x51C81BAC)
+I (C:\Users\dawid\OneDrive\Pulpit\Programowanie_System-w_Wbudowanych_v2\Archive\Servo2\timer_interrupts.h)(0x5EBAE511)
+F (.\timer_interrupts.h)(0x5EBAE511)()
+F (.\keyboard.h)(0x5EBAE528)()
+F (.\Keyboard.c)(0x5EBAE511)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\keyboard.o --omf_browse .\keyboard.crf --depend .\keyboard.d)
+I (C:\Keil\ARM\Inc\Philips\LPC21xx.H)(0x51C81BAC)
+I (C:\Users\dawid\OneDrive\Pulpit\Programowanie_System-w_Wbudowanych_v2\Archive\Servo2\keyboard.h)(0x5EBAE528)
+F (.\servo.c)(0x5EBAF73E)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\servo.o --omf_browse .\servo.crf --depend .\servo.d)
+I (C:\Keil\ARM\Inc\Philips\LPC21xx.H)(0x51C81BAC)
+I (C:\Users\dawid\OneDrive\Pulpit\Programowanie_System-w_Wbudowanych_v2\Archive\Servo2\led.h)(0x5EBAE4EC)
+I (C:\Users\dawid\OneDrive\Pulpit\Programowanie_System-w_Wbudowanych_v2\Archive\Servo2\timer_interrupts.h)(0x5EBAE511)
+I (C:\Users\dawid\OneDrive\Pulpit\Programowanie_System-w_Wbudowanych_v2\Archive\Servo2\servo.h)(0x5EBAE511)
+F (.\servo.h)(0x5EBAE511)()
+F (.\9.4.c)(0x5EBAE511)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\9.4.o --omf_browse .\9.4.crf --depend .\9.4.d)
+I (C:\Users\dawid\OneDrive\Pulpit\Programowanie_System-w_Wbudowanych_v2\Archive\Servo2\keyboard.h)(0x5EBAE528)
+I (C:\Users\dawid\OneDrive\Pulpit\Programowanie_System-w_Wbudowanych_v2\Archive\Servo2\servo.h)(0x5EBAE511)
