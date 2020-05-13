@@ -18,7 +18,6 @@ struct Servo{
 
 struct Servo sServo;
 
-/////////////////////////////////
 
 void DetectorInit(void){
 	IO0DIR&=(~DETECTOR_bm);
@@ -43,7 +42,7 @@ void ServoGoTo(unsigned int uiPosition){
 	sServo.uiDesiredPosition= uiPosition;
 }
 	
-/////////////////////////////////
+
 
 void Automat(){
 		
@@ -60,16 +59,15 @@ void Automat(){
 			}
 			break;	
 		
-		case SET_OFFSET:	
-			sServo.uiOffset=12;
-			
-			if(sServo.uiCurrentPosition<sServo.uiOffset){
-				LedStepLeft();
-				sServo.uiCurrentPosition++;
-			}
-			else{
+		case SET_OFFSET:			
+			if(sServo.uiCurrentPosition>=sServo.uiOffset){
 				sServo.uiCurrentPosition=0;
 				sServo.eState=IDDLE;
+			}
+			else{	
+				LedStepLeft();
+				sServo.uiCurrentPosition++;
+				sServo.eState=SET_OFFSET;
 				}
 				break;
 		
@@ -104,6 +102,7 @@ void ServoInit(unsigned int uiServoFrequency){
 	LedInit();
 	Timer0Interrupts_Init(1000000/uiServoFrequency ,&Automat);
 	ServoCallib();
+	sServo.uiOffset=12;
 }
 
 

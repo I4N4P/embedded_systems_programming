@@ -3,14 +3,8 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
-<<<<<<< HEAD
 C:\Users\Blue\Documents\GitHub\Programowanie_System-w_Wbudowanych\Archive\GPIO_6\Scechura_5.2.uvproj
 Project File Date:  04/22/2020
-
-<h2>Output:</h2>
-=======
-C:\Users\dawid\OneDrive\Pulpit\Programowanie_System-w_Wbudowanych_v2\Archive\GPIO_6\Scechura_5.2.uvproj
-Project File Date:  05/12/2020
 
 <h2>Output:</h2>
 Build target 'Target 1'
@@ -19,4 +13,15 @@ linking...
 Program Size: Code=2888 RO-data=32 RW-data=8 ZI-data=1256  
 FromELF: creating hex file...
 ".\Scechura_5.2" - 0 Errors, 0 Warning(s).
->>>>>>> 98f78b2770f427a3349c35d08345e3f8482460ed
+Build target 'Target 1'
+compiling 6.6.c...
+linking...
+Program Size: Code=2892 RO-data=32 RW-data=8 ZI-data=1256  
+FromELF: creating hex file...
+".\Scechura_5.2" - 0 Errors, 0 Warning(s).
+Build target 'Target 1'
+compiling 6.6.c...
+linking...
+Program Size: Code=2892 RO-data=32 RW-data=8 ZI-data=1256  
+FromELF: creating hex file...
+".\Scechura_5.2" - 0 Errors, 0 Warning(s).

@@ -1,7 +1,7 @@
 #include"Led.h"
 #include"keyboard.h"
 
-enum LedState{RUN_RIGHT,STOP,RUN_LEFT,DIODE_BLINKING,DIODE_STATE_CHECK};
+enum LedState{RUN_RIGHT,STOP,RUN_LEFT,DIODE_BLINKING};
 enum LedState eLedState = STOP;
 
 
@@ -32,6 +32,7 @@ int main(){
 					}	
 					else if(eKeyBoardRead()==BUTTON_3){
 						eLedState = DIODE_BLINKING;
+						ucBlinkingCounter=0;
 					}		
 					break;
 			case RUN_LEFT:
@@ -47,12 +48,15 @@ int main(){
 					}	
 				break;
 			case DIODE_BLINKING:
-			{
 				if( eKeyBoardRead() == BUTTON_1)
 				{
 					eLedState = STOP;
 				}
-				else if ( ucBlinkingCounter < 20 )
+				else if ( ucBlinkingCounter > 20 )
+				{
+					eLedState = STOP;
+				}
+				else 
 				{
 					if( (ucBlinkingCounter%2) == 0 )
 					{
@@ -62,17 +66,12 @@ int main(){
 					{
 						LedOn(5);
 					}
-					ucBlinkingCounter++;
 					eLedState=DIODE_BLINKING;
-				}
-				else 
-				{
-					eLedState = STOP;
+					ucBlinkingCounter++;
 				}
 			break;
-			}
 		}
-		Delay(50);	
+		Delay(100);	
 	}
 }
  
