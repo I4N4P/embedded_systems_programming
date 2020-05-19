@@ -4,8 +4,8 @@
 ".\timer_interrupts.o"
 ".\keyboard.o"
 ".\servo.o"
-".\9.4.o"
 ".\uart.o"
+".\10.4.o"
 --strict --scatter ".\8.sct"
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

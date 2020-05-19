@@ -1,32 +1,32 @@
 Dependencies for Project '8', Target 'Target 1': (DO NOT MODIFY !)
-F (.\Startup.s)(0x51C80D6E)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips--list .\startup.lst --xref -o .\startup.o --depend .\startup.d)
-F (.\Led.c)(0x5E72B0B3)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\led.o --omf_browse .\led.crf --depend .\led.d)
-I (C:\Keil\ARM\Inc\Philips\LPC21xx.H)(0x51C80D9C)
-I (C:\Users\dawid\OneDrive\Pulpit\programowanie w c\Current\Led.h)(0x5E728C35)
-F (.\Led.h)(0x5E728C35)()
-F (.\timer_interrupts.c)(0x5E729278)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\timer_interrupts.o --omf_browse .\timer_interrupts.crf --depend .\timer_interrupts.d)
-I (C:\Keil\ARM\Inc\Philips\LPC21xx.H)(0x51C80D9C)
-I (C:\Users\dawid\OneDrive\Pulpit\programowanie w c\Current\led.h)(0x5E728C35)
-I (C:\Users\dawid\OneDrive\Pulpit\programowanie w c\Current\timer_interrupts.h)(0x5E7292B7)
-F (.\timer_interrupts.h)(0x5E7292B7)()
-F (.\keyboard.h)(0x5E684710)()
-F (.\Keyboard.c)(0x5E72B0B3)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\keyboard.o --omf_browse .\keyboard.crf --depend .\keyboard.d)
-I (C:\Keil\ARM\Inc\Philips\LPC21xx.H)(0x51C80D9C)
-I (C:\Users\dawid\OneDrive\Pulpit\programowanie w c\Current\keyboard.h)(0x5E684710)
-F (.\servo.c)(0x5E73D286)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\servo.o --omf_browse .\servo.crf --depend .\servo.d)
-I (C:\Keil\ARM\Inc\Philips\LPC21xx.H)(0x51C80D9C)
-I (C:\Users\dawid\OneDrive\Pulpit\programowanie w c\Current\servo.h)(0x5E73D286)
-I (C:\Users\dawid\OneDrive\Pulpit\programowanie w c\Current\timer_interrupts.h)(0x5E7292B7)
-I (C:\Users\dawid\OneDrive\Pulpit\programowanie w c\Current\led.h)(0x5E728C35)
-I (C:\Users\dawid\OneDrive\Pulpit\programowanie w c\Current\Keyboard.h)(0x5E684710)
-F (.\servo.h)(0x5E73D286)()
-F (.\uart.c)(0x5E7417CB)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\uart.o --omf_browse .\uart.crf --depend .\uart.d)
-I (C:\Keil\ARM\Inc\Philips\LPC21XX.H)(0x51C80D9C)
-I (C:\Users\dawid\OneDrive\Pulpit\programowanie w c\Current\uart.h)(0x5E741069)
-F (.\uart.h)(0x5E741069)()
-F (.\12.6.c)(0x5E741E68)()
-I (C:\Users\dawid\OneDrive\Pulpit\programowanie w c\Current\uart.h)(0x5E741069)
-I (C:\Keil\ARM\Inc\Philips\LPC21xx.H)(0x51C80D9C)
-I (C:\Users\dawid\OneDrive\Pulpit\programowanie w c\Current\Led.h)(0x5E728C35)
-I (C:\Users\dawid\OneDrive\Pulpit\programowanie w c\Current\servo.h)(0x5E73D286)
-I (C:\Users\dawid\OneDrive\Pulpit\programowanie w c\Current\timer_interrupts.h)(0x5E7292B7)
+F (.\Startup.s)(0x5EBADE36)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips--list .\startup.lst --xref -o .\startup.o --depend .\startup.d)
+F (.\Led.c)(0x5EBADE36)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\led.o --omf_browse .\led.crf --depend .\led.d)
+I (C:\Keil\ARM\Inc\Philips\LPC21xx.H)(0x51C81BAC)
+I (C:\Users\dawid\OneDrive\Pulpit\Programowanie_System-w_Wbudowanych_v2\Current\Led.h)(0x5EBADE36)
+F (.\Led.h)(0x5EBADE36)()
+F (.\timer_interrupts.c)(0x5EBADE36)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\timer_interrupts.o --omf_browse .\timer_interrupts.crf --depend .\timer_interrupts.d)
+I (C:\Keil\ARM\Inc\Philips\LPC21xx.H)(0x51C81BAC)
+I (C:\Users\dawid\OneDrive\Pulpit\Programowanie_System-w_Wbudowanych_v2\Current\led.h)(0x5EBADE36)
+I (C:\Users\dawid\OneDrive\Pulpit\Programowanie_System-w_Wbudowanych_v2\Current\timer_interrupts.h)(0x5EBADE36)
+F (.\timer_interrupts.h)(0x5EBADE36)()
+F (.\keyboard.h)(0x5EBADE36)()
+F (.\Keyboard.c)(0x5EBADE36)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\keyboard.o --omf_browse .\keyboard.crf --depend .\keyboard.d)
+I (C:\Keil\ARM\Inc\Philips\LPC21xx.H)(0x51C81BAC)
+I (C:\Users\dawid\OneDrive\Pulpit\Programowanie_System-w_Wbudowanych_v2\Current\keyboard.h)(0x5EBADE36)
+F (.\servo.c)(0x5EBADE36)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\servo.o --omf_browse .\servo.crf --depend .\servo.d)
+I (C:\Keil\ARM\Inc\Philips\LPC21xx.H)(0x51C81BAC)
+I (C:\Users\dawid\OneDrive\Pulpit\Programowanie_System-w_Wbudowanych_v2\Current\servo.h)(0x5EBADE36)
+I (C:\Users\dawid\OneDrive\Pulpit\Programowanie_System-w_Wbudowanych_v2\Current\timer_interrupts.h)(0x5EBADE36)
+I (C:\Users\dawid\OneDrive\Pulpit\Programowanie_System-w_Wbudowanych_v2\Current\led.h)(0x5EBADE36)
+I (C:\Users\dawid\OneDrive\Pulpit\Programowanie_System-w_Wbudowanych_v2\Current\Keyboard.h)(0x5EBADE36)
+F (.\servo.h)(0x5EBADE36)()
+F (.\uart.c)(0x5EBADE36)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\uart.o --omf_browse .\uart.crf --depend .\uart.d)
+I (C:\Keil\ARM\Inc\Philips\LPC21XX.H)(0x51C81BAC)
+I (C:\Users\dawid\OneDrive\Pulpit\Programowanie_System-w_Wbudowanych_v2\Current\uart.h)(0x5EBADE36)
+F (.\uart.h)(0x5EBADE36)()
+F (.\12.6.c)(0x5EBADE36)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\12.6.o --omf_browse .\12.6.crf --depend .\12.6.d)
+I (C:\Users\dawid\OneDrive\Pulpit\Programowanie_System-w_Wbudowanych_v2\Current\uart.h)(0x5EBADE36)
+I (C:\Keil\ARM\Inc\Philips\LPC21xx.H)(0x51C81BAC)
+I (C:\Users\dawid\OneDrive\Pulpit\Programowanie_System-w_Wbudowanych_v2\Current\Led.h)(0x5EBADE36)
+I (C:\Users\dawid\OneDrive\Pulpit\Programowanie_System-w_Wbudowanych_v2\Current\servo.h)(0x5EBADE36)
+I (C:\Users\dawid\OneDrive\Pulpit\Programowanie_System-w_Wbudowanych_v2\Current\timer_interrupts.h)(0x5EBADE36)

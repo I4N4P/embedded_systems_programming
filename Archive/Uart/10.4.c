@@ -1,33 +1,37 @@
 #include "uart.h"
-#include "Led.h"
+#include "keyboard.h"
 #include "servo.h"
 
-extern char cOdebranyZnak;
-extern struct Servo sServo;
+#define NULL '\0'
 
-int main(){
-	UART_InitWithInt(9600);
-	LedInit();
+int main ()
+{	
+	//extern char cOdebranyZnak;
+//	unsigned int uiCurrentServoPosition = 1;
+	//UART_InitWithInt(9600);
 	ServoInit(5);
-	sServo.eState=IDLE;
+	KeyboardInit();
 	
-	while(1){
-	
-		if(cOdebranyZnak=='1'){
-			sServo.uiDesiredPosition=50;
-			
-		}
-		else if(cOdebranyZnak=='c'){
-			sServo.eState=CALLIB;
-			cOdebranyZnak='d';
-		}
-		if(sServo.uiCurrentPosition==50){
-			cOdebranyZnak='d';
-			sServo.uiDesiredPosition=0;
-			sServo.uiCurrentPosition=0;
-		}
-	
-	}
+	while(1)
+	{
 
+		switch(eKeyBoardRead())
+		{
+			case BUTTON_0:
+				ServoCallib();
+				break;	
+			
+			case BUTTON_1:
+				ServoGoTo(4);
+				break;
+			
+			case BUTTON_2:
+				ServoGoTo(8);
+				break;
+			
+			default:
+				break;
+		}
+	}
 }
 

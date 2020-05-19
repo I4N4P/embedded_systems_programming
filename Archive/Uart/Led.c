@@ -13,11 +13,11 @@ void LedInit(void){
 	IO1SET=LED0_bm;	 
 }
 
-void Led_StepLeft(void){
+void LedStepLeft(void){
 	LedStep(LEFT);
 }
 
-void Led_StepRight(void){
+void LedStepRight(void){
 	LedStep(RIGHT);
 }
 
