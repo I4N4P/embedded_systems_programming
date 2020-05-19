@@ -7,3 +7,8 @@ C:\Users\Blue\Documents\GitHub\Programowanie_System-w_Wbudowanych\Archive\Servo\
 Project File Date:  03/19/2020
 
 <h2>Output:</h2>
+Build target 'Target 1'
+linking...
+Program Size: Code=2628 RO-data=32 RW-data=12 ZI-data=1276  
+FromELF: creating hex file...
+".\8.axf" - 0 Errors, 0 Warning(s).
