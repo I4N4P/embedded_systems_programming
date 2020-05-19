@@ -12,7 +12,7 @@ F (.\keyboard.h)(0x5EBB1079)()
 F (.\Keyboard.c)(0x5EBB1079)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\keyboard.o --omf_browse .\keyboard.crf --depend .\keyboard.d)
 I (C:\Keil\ARM\Inc\Philips\LPC21xx.H)(0x51C80D9C)
 I (C:\Users\Blue\Documents\GitHub\Programowanie_System-w_Wbudowanych\Archive\Servo\keyboard.h)(0x5EBB1079)
-F (.\servo.c)(0x5EBB818E)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\servo.o --omf_browse .\servo.crf --depend .\servo.d)
+F (.\servo.c)(0x5EBB8264)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\servo.o --omf_browse .\servo.crf --depend .\servo.d)
 I (C:\Keil\ARM\Inc\Philips\LPC21xx.H)(0x51C80D9C)
 I (C:\Users\Blue\Documents\GitHub\Programowanie_System-w_Wbudowanych\Archive\Servo\led.h)(0x5EBB1079)
 I (C:\Users\Blue\Documents\GitHub\Programowanie_System-w_Wbudowanych\Archive\Servo\timer_interrupts.h)(0x5EBB1079)
