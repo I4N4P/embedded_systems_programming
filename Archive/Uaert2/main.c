@@ -2,7 +2,7 @@
 #include "keyboard.h"
 #include "servo.h"
 
-#define NULL '\0'
+
 
 int main ()
 {	

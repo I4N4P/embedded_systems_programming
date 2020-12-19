@@ -1,5 +1,5 @@
 #include <LPC210X.H>
-
+#include "uart.h"
 /************ UART ************/
 // PIN Function Select Register 0
 #define mP0_1_RxD 																	0x00000004
@@ -27,6 +27,11 @@
 
 ////////////// Zmienne globalne ////////////
 char cOdebranyZnak;
+ struct TransmiterBuffer sTransmiterBuffer;
+unsigned char ucCharCtr=0;
+unsigned char ucCharCtr1=0;
+extern unsigned char ucDane;
+
 
 
 ///////////////////////////////////////////
@@ -62,4 +67,39 @@ void UART_InitWithInt(unsigned int uiBaudRate){
    VICVectAddr1  = (unsigned long) UART0_Interrupt;             // set interrupt service routine address
    VICVectCntl1  = mIRQ_SLOT_ENABLE | VIC_UART0_CHANNEL_NR;     // use it for UART 0 Interrupt
    VICIntEnable |= (0x1 << VIC_UART0_CHANNEL_NR);               // Enable UART 0 Interrupt Channel
+}
+
+char Transmiter_GetCharacterFromBuffer(){
+	sTransmiterBuffer.ucCharCtr++;
+	if(sTransmiterBuffer.fLastCharacter==1){
+		sTransmiterBuffer.eStatus=FREE;
+		sTransmiterBuffer.fLastCharacter=0;
+		sTransmiterBuffer.ucCharCtr=0;
+		return NULL;
+	}
+	else if(sTransmiterBuffer.cData[ucCharCtr]==NULL){
+		sTransmiterBuffer.fLastCharacter=1;
+		return TERMINATOR1;
+	}
+	
+	return sTransmiterBuffer.cData[ucCharCtr];
+}
+
+void Transmiter_SendString(char cString[]){
+	unsigned char ucArrayIndex;
+	sTransmiterBuffer.eStatus=BUSY;
+	for(ucArrayIndex=0;cString[ucArrayIndex]!=NULL;ucArrayIndex++){
+		sTransmiterBuffer.cData[ucArrayIndex]=cString[ucArrayIndex];
+	}
+	sTransmiterBuffer.cData[ucArrayIndex]=NULL;
+	U0THR=sTransmiterBuffer.cData[0];
+	
+	ucCharCtr=0;
+	ucCharCtr1=1;
+}
+
+enum eTransmiterStatus eTransmiter_Status(void){
+	if(sTransmiterBuffer.eStatus==BUSY)
+		return BUSY;
+	return FREE;
 }
