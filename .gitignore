@@ -50,3 +50,20 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# Keil files
+*.crf
+*.dep
+*.plg
+*.htm
+*.axf
+*.lnf
+*.sct
+*.bak
+*.lnp
+*.Blue
+*.uvopt
+*.uvproj
+*.dawid
+*.lst
+*.xml

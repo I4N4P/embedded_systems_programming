@@ -1,9 +1,0 @@
---cpu ARM7TDMI
-".\startup.o"
-".\main.o"
-".\strings1.o"
-".\string2.o"
---strict --scatter ".\Funkcje.sct"
---summary_stderr --info summarysizes --map --xref --callgraph --symbols
---info sizes --info totals --info unused --info veneers
---list ".\Funkcje.map" -o .\Funkcje.axf

@@ -1,27 +1,0 @@
-Dependencies for Project '8', Target 'Target 1': (DO NOT MODIFY !)
-F (.\Startup.s)(0x5FABE89C)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips--list .\startup.lst --xref -o .\startup.o --depend .\startup.d)
-F (.\Led.c)(0x5FABE89C)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\led.o --omf_browse .\led.crf --depend .\led.d)
-I (C:\Keil\ARM\Inc\Philips\LPC21xx.H)(0x51C80D9C)
-I (C:\Users\dawid\OneDrive\Pulpit\Studia\Programowanie_System-w_Wbudowanych\Archive\Uaert2\led.h)(0x5FABE89C)
-F (.\Led.h)(0x5FABE89C)()
-F (.\timer_interrupts.c)(0x5FABE89C)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\timer_interrupts.o --omf_browse .\timer_interrupts.crf --depend .\timer_interrupts.d)
-I (C:\Keil\ARM\Inc\Philips\LPC21xx.H)(0x51C80D9C)
-I (C:\Users\dawid\OneDrive\Pulpit\Studia\Programowanie_System-w_Wbudowanych\Archive\Uaert2\timer_interrupts.h)(0x5FABE89C)
-F (.\timer_interrupts.h)(0x5FABE89C)()
-F (.\keyboard.h)(0x5FABE89C)()
-F (.\Keyboard.c)(0x5FABE89C)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\keyboard.o --omf_browse .\keyboard.crf --depend .\keyboard.d)
-I (C:\Keil\ARM\Inc\Philips\LPC21xx.H)(0x51C80D9C)
-I (C:\Users\dawid\OneDrive\Pulpit\Studia\Programowanie_System-w_Wbudowanych\Archive\Uaert2\keyboard.h)(0x5FABE89C)
-F (.\servo.c)(0x5FABE89C)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\servo.o --omf_browse .\servo.crf --depend .\servo.d)
-I (C:\Keil\ARM\Inc\Philips\LPC21xx.H)(0x51C80D9C)
-I (C:\Users\dawid\OneDrive\Pulpit\Studia\Programowanie_System-w_Wbudowanych\Archive\Uaert2\led.h)(0x5FABE89C)
-I (C:\Users\dawid\OneDrive\Pulpit\Studia\Programowanie_System-w_Wbudowanych\Archive\Uaert2\timer_interrupts.h)(0x5FABE89C)
-I (C:\Users\dawid\OneDrive\Pulpit\Studia\Programowanie_System-w_Wbudowanych\Archive\Uaert2\servo.h)(0x5FABE89C)
-F (.\servo.h)(0x5FABE89C)()
-F (.\uart.c)(0x5FABE89C)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\uart.o --omf_browse .\uart.crf --depend .\uart.d)
-I (C:\Keil\ARM\Inc\Philips\LPC210X.H)(0x51C80D9C)
-F (.\uart.h)(0x5FABE89C)()
-F (.\main.c)(0x5FABE89C)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\main.o --omf_browse .\main.crf --depend .\main.d)
-I (C:\Users\dawid\OneDrive\Pulpit\Studia\Programowanie_System-w_Wbudowanych\Archive\Uaert2\uart.h)(0x5FABE89C)
-I (C:\Users\dawid\OneDrive\Pulpit\Studia\Programowanie_System-w_Wbudowanych\Archive\Uaert2\keyboard.h)(0x5FABE89C)
-I (C:\Users\dawid\OneDrive\Pulpit\Studia\Programowanie_System-w_Wbudowanych\Archive\Uaert2\servo.h)(0x5FABE89C)

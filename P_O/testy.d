@@ -1,1 +1,0 @@
-.\testy.o: Testy.c

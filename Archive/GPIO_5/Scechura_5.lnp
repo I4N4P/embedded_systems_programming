@@ -1,9 +1,0 @@
---cpu ARM7TDMI
-".\startup.o"
-".\main.o"
-".\led.o"
-".\keyboard.o"
---strict --scatter ".\Scechura_5.sct"
---summary_stderr --info summarysizes --map --xref --callgraph --symbols
---info sizes --info totals --info unused --info veneers
---list ".\Scechura_5.map" -o .\Scechura_5.2
