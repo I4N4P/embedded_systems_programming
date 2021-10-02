@@ -1,72 +1,97 @@
-#include<LPC21xx.H>
 
-#define LED0_bm 1<<16
-#define LED1_bm 1<<17
-#define LED2_bm 1<<18
-#define LED3_bm 1<<19
-#define BUT0_bm 1<<4
-#define BUT1_bm 1<<6
-#define BUT2_bm 1<<5
-#define BUT3_bm 1<<7
+#define LED_GREEN_SET  (1 << 12)
+#define LED_GREEN_DIR  (1 << 24)
+#define LED_ORANGE_SET (1 << 13)
+#define LED_ORANGE_DIR (1 << 26)
+#define LED_RED_SET    (1 << 14)
+#define LED_RED_DIR    (1 << 28)
+#define LED_BLUE_SET   (1 << 15)
+#define LED_BLUE_DIR   (1 << 30)
+#define GPIOD_EN       (1 << 3)
+#define GPIOA_EN       (1 << 0)
+
+#define USR_BLUE_SET   (1 << 0)
+#define USR_BLUE_DIR   (1 << 0) | (1 << 1)
+#define USR_BLUE_PUL   (1 << 0)
+
+#define DELAY_COUNT_1MS 1250U
+
+#define RCCAHB1   (*((volatile unsigned long *) 0x40023830)) // uint32_t *pRccAhb1enr = (uint32_t*)0x40023830;
+#define GPIOAMODE (*((volatile unsigned long *) 0x40020000)) // uint32_t *pGpiodModeReg = (uint32_t*)0x40020000;
+#define GPIODMODE (*((volatile unsigned long *) 0x40020C00)) // uint32_t *pGpiodModeReg = (uint32_t*)0x40020C00;
+#define GPIOADATA (*((volatile unsigned long *) 0x40020010)) // uint32_t *pGpiodDataReg = (uint32_t*)0x40020000;
+#define GPIODDATA (*((volatile unsigned long *) 0x40020C14)) // uint32_t *pGpiodDataReg = (uint32_t*)0x40020C14;
+#define GPIOAPULL (*((volatile unsigned long *) 0x4002000C)) // uint32_t *pGpiodPupdrReg = (uint32_t*)0x40020000;
+
+int period = 250;
+
+void led_init(void)
+{
+	// Enable clock for peripherals
+	RCCAHB1 |= GPIOD_EN;
+	// configure leds as outputs
+	GPIODMODE |= (LED_GREEN_DIR | LED_ORANGE_DIR | LED_RED_DIR | LED_BLUE_DIR);
+	// turn off leds
+	GPIODDATA &= ~(LED_ORANGE_SET | LED_RED_SET | LED_BLUE_SET);
+	// turn on green led
+	GPIODDATA |= LED_GREEN_SET;
+}
+
+void led_on(unsigned char led_index)
+{
+	GPIODDATA &= ~(LED_GREEN_SET | LED_ORANGE_SET | LED_RED_SET | LED_BLUE_SET);
+	switch (led_index) {
+	case 0 :
+		GPIODDATA |= LED_GREEN_SET;
+		break;
+	case 1 :
+		GPIODDATA |= LED_ORANGE_SET;
+		break;
+	case 2 :
+		GPIODDATA |= LED_RED_SET;
+		break;
+	case 3 :
+		GPIODDATA |= LED_BLUE_SET;
+		break;
+	default:
+		GPIODDATA &= ~(LED_GREEN_SET | LED_ORANGE_SET | LED_RED_SET | LED_BLUE_SET);
+		break;
+	}
+}
+
+void delay(int time)
+{
+	time = time * DELAY_COUNT_1MS;
+	for (int counter = 0;counter < time;counter++);
+}
 
 enum ButtonState {RELASED, PRESSED};
 
-void LedInit(){
-	IO1DIR=(IO1DIR|LED0_bm|LED1_bm|LED2_bm|LED3_bm);
-	IO1CLR=(LED1_bm|LED2_bm|LED3_bm);
-	IO1SET=LED0_bm;	 
-}
-
-enum ButtonState eReadButton1(){
-	if(!(IO0PIN&BUT0_bm))){
+enum ButtonState eReadButton1()
+{
+	if (!(GPIOADATA & USR_BLUE_SET))
 		return PRESSED;
-	}
-	else{
+	else
 		return RELASED;
-	}
 }
 
-
-
-void LedOn(unsigned char ucLedindeks){
-	IO1CLR=(IO1DIR|LED0_bm|LED1_bm|LED2_bm|LED3_bm);
-	switch(ucLedindeks){
-		case 0:
-			IO1SET=LED0_bm;
+int main()
+{
+	led_init();
+	RCCAHB1 |= GPIOA_EN;
+	GPIOAMODE &= ~USR_BLUE_DIR;
+	GPIOAPULL |= USR_BLUE_PUL;
+	while (1) {
+		switch (eReadButton1()) {
+		case RELASED :
+			led_on(0);
 			break;
-		case 1:
-			IO1SET=LED1_bm;
-			break;
-		case 2:
-			IO1SET=LED2_bm;
-			break;
-		case 3:
-			IO1SET=LED3_bm;
+		case PRESSED :
+			led_on(1);
 			break;
 		default:
-			IO1CLR=(IO1DIR|LED0_bm|LED1_bm|LED2_bm|LED3_bm);
+			delay(10);
 			break;
-	}
-}
-
-void Delay(float fTime){
-	int iLicznikPetli;
-	fTime=fTime*1277.245693655213;
-	for(iLicznikPetli=0;iLicznikPetli<fTime;iLicznikPetli++){};
-}
-
-int main(){
-	while(1){
-		switch(eReadButton1()){
-			case RELASED:
-				LedOn(0);
-				break;
-			case PRESSED:
-				LedOn(1);
-				break;
-			default:
-				Delay(10);
-				break;
 		}
 	}
 }

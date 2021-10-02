@@ -1,33 +1,46 @@
-#include<LPC21xx.H>
+#define LED_GREEN_SET  (1 << 12)
+#define LED_GREEN_DIR  (1 << 24)
+#define LED_ORANGE_SET (1 << 13)
+#define LED_ORANGE_DIR (1 << 26)
+#define LED_RED_SET    (1 << 14)
+#define LED_RED_DIR    (1 << 28)
+#define LED_BLUE_SET   (1 << 15)
+#define LED_BLUE_DIR   (1 << 30)
+#define GPIOD_EN       (1 << 3)
 
-#define LED0_bm 1<<16
-#define LED1_bm 1<<17
-#define LED2_bm 1<<18
-#define LED3_bm 1<<19
+#define DELAY_COUNT_1MS 1250U
 
-int iCzasSwiecenia=250;
 
-void Delay(float fTime){
-	int iLicznikPetli;
-	fTime=fTime*1277.245693655213;
-	for(iLicznikPetli=0;iLicznikPetli<fTime;iLicznikPetli++){};
+#define RCCAHB1   (*((volatile unsigned long *) 0x40023830)) // uint32_t *pRccAhb1enr = (uint32_t*)0x40023830;
+#define GPIODMODE (*((volatile unsigned long *) 0x40020C00)) // uint32_t *pGpiodModeReg = (uint32_t*)0x40020C00;
+#define GPIODDATA (*((volatile unsigned long *) 0x40020C14)) // uint32_t *pGpiodDataReg = (uint32_t*)0x40020C14;
+
+int period = 250;
+
+void delay(int time)
+{
+	time = time * DELAY_COUNT_1MS;
+	for (int counter = 0;counter < time;counter++);
 }
 
-int main(){
-	IO1DIR=(IO1DIR|LED0_bm|LED1_bm|LED2_bm|LED3_bm);
-	IO1CLR=(LED0_bm|LED1_bm|LED2_bm|LED3_bm);
-	while(1){
-		IO1SET=LED0_bm;
-		Delay(iCzasSwiecenia);
-		IO1CLR=LED0_bm;
-		IO1SET=LED1_bm;
-		Delay(iCzasSwiecenia);
-		IO1CLR=LED1_bm;
-		IO1SET=LED2_bm;
-		Delay(iCzasSwiecenia);
-		IO1CLR=LED2_bm;
-		IO1SET=LED3_bm;
-		Delay(iCzasSwiecenia);
-		IO1CLR=LED3_bm;
+int main()
+{
+	// Enable clock for peripherals
+	RCCAHB1 |= GPIOD_EN;
+	GPIODMODE |= (LED_GREEN_DIR | LED_ORANGE_DIR | LED_RED_DIR | LED_BLUE_DIR);
+	GPIODDATA &= ~(LED_GREEN_SET | LED_ORANGE_SET | LED_RED_SET | LED_BLUE_SET);
+	while (1) {
+		GPIODDATA |= LED_GREEN_SET;
+		delay(period);
+		GPIODDATA &= ~LED_GREEN_SET;
+		GPIODDATA |= LED_ORANGE_SET;
+		delay(period);
+		GPIODDATA &= ~LED_ORANGE_SET;
+		GPIODDATA |= LED_RED_SET;
+		delay(period);
+		GPIODDATA &= ~LED_RED_SET;
+		GPIODDATA |= LED_BLUE_SET;
+		delay(period);
+		GPIODDATA &= ~LED_BLUE_SET;
 	}
 }

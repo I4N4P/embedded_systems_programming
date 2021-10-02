@@ -1,55 +1,74 @@
-#include<LPC21xx.H>
 
-#define LED0_bm 1<<16
-#define LED1_bm 1<<17
-#define LED2_bm 1<<18
-#define LED3_bm 1<<19
+#define LED_GREEN_SET  (1 << 12)
+#define LED_GREEN_DIR  (1 << 24)
+#define LED_ORANGE_SET (1 << 13)
+#define LED_ORANGE_DIR (1 << 26)
+#define LED_RED_SET    (1 << 14)
+#define LED_RED_DIR    (1 << 28)
+#define LED_BLUE_SET   (1 << 15)
+#define LED_BLUE_DIR   (1 << 30)
+#define GPIOD_EN       (1 << 3)
 
-int iCzasSwiecenia=250;
+#define DELAY_COUNT_1MS 1250U
 
-void LedInit(){
-	IO1DIR=(LED0_bm|LED1_bm|LED2_bm|LED3_bm);
-	IO1CLR=(LED1_bm|LED2_bm|LED3_bm);
-	IO1SET=LED0_bm;	 
+
+#define RCCAHB1   (*((volatile unsigned long *) 0x40023830)) // uint32_t *pRccAhb1enr = (uint32_t*)0x40023830;
+#define GPIODMODE (*((volatile unsigned long *) 0x40020C00)) // uint32_t *pGpiodModeReg = (uint32_t*)0x40020C00;
+#define GPIODDATA (*((volatile unsigned long *) 0x40020C14)) // uint32_t *pGpiodDataReg = (uint32_t*)0x40020C14;
+
+int period = 250;
+
+void led_init(void)
+{
+	// Enable clock for peripherals
+	RCCAHB1 |= GPIOD_EN;
+	// configure leds as outputs
+	GPIODMODE |= (LED_GREEN_DIR | LED_ORANGE_DIR | LED_RED_DIR | LED_BLUE_DIR);
+	// turn off leds
+	GPIODDATA &= ~(LED_ORANGE_SET | LED_RED_SET | LED_BLUE_SET);
+	// turn on green led
+	GPIODDATA |= LED_GREEN_SET;
 }
 
-void LedOn(unsigned char ucLedindeks){
-	IO1CLR=(IO1DIR|LED0_bm|LED1_bm|LED2_bm|LED3_bm);
-	switch(ucLedindeks){
-		case 0:
-			IO1SET=LED0_bm;
-			break;
-		case 1:
-			IO1SET=LED1_bm;
-			break;
-		case 2:
-			IO1SET=LED2_bm;
-			break;
-		case 3:
-			IO1SET=LED3_bm;
-			break;
-		default:
-			IO1CLR=(IO1DIR|LED0_bm|LED1_bm|LED2_bm|LED3_bm);
-			break;
+void led_on(unsigned char led_index)
+{
+	GPIODDATA &= ~(LED_GREEN_SET | LED_ORANGE_SET | LED_RED_SET | LED_BLUE_SET);
+	switch (led_index) {
+	case 0 :
+		GPIODDATA |= LED_GREEN_SET;
+		break;
+	case 1 :
+		GPIODDATA |= LED_ORANGE_SET;
+		break;
+	case 2 :
+		GPIODDATA |= LED_RED_SET;
+		break;
+	case 3 :
+		GPIODDATA |= LED_BLUE_SET;
+		break;
+	default:
+		GPIODDATA &= ~(LED_GREEN_SET | LED_ORANGE_SET | LED_RED_SET | LED_BLUE_SET);
+		break;
 	}
 }
 
-void Delay(float fTime){
-	int iLicznikPetli;
-	fTime=fTime*1277.245693655213;
-	for(iLicznikPetli=0;iLicznikPetli<fTime;iLicznikPetli++){};
+void delay(int time)
+{
+	time = time * DELAY_COUNT_1MS;
+	for (int counter = 0;counter < time;counter++);
 }
 
-int main(){
-	LedInit();
-	while(1){
-		LedOn(0);
-		Delay(iCzasSwiecenia);
-		LedOn(1);
-		Delay(iCzasSwiecenia);
-		LedOn(2);
-		Delay(iCzasSwiecenia);
-		LedOn(3);
-		Delay(iCzasSwiecenia);
+int main()
+{
+	led_init();
+	while (1) {
+		led_on(0);
+		delay(period);
+		led_on(1);
+		delay(period);
+		led_on(2);
+		delay(period);
+		led_on(3);
+		delay(period);
 	}
 }
