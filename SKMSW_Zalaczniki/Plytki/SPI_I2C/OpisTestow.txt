@@ -1,0 +1,46 @@
+# Zasilanie 
+- z płytki z uC
+   - GND
+   - 5V-bolec nad napisem 12V
+
+###I2C###
+
+#Połączenia do płytki z uC
+SCL0:P0.2
+SDA0:P0.3
+
+#PCF8574
+- I2C_PCF8574.hex
+- Wyjście: 
+  - ustawic wszystkie przelaczniki na "Nie On" ("1" po lewej stronie)
+  - zaraz o resecie pownno sie pokazać 0x55 0xAA na przemian kilka razy
+- Wejscie:
+  - potem układ sczytuje stan przełączników i wyswietla na ledach na płytce uC
+  
+#24LC64
+- I2C_MC24lc64.hex
+- po wgraniu programu lub po resecie na ledach na płytce uC powinien przesunąć się punkt swietlny od D0 do D7 (tylko raz)
+
+
+###SPI###
+
+#Połączenia do płytki z uC
+SCK0:P0.4
+SDO: P0.5
+SDI: P0.6
+
+#MCP2309
+- uC:P0.10 -> CS_IO
+- SPI_MCP23S09.hex
+- Wyjście: 
+  - ustawic wszystkie przelaczniki na "Nie On" ("1" po lewej stronie)
+  - zaraz o resecie pownno sie pokazać 0x55 0xAA na przemian kilka razy
+- Wejscie:
+  - potem układ sczytuje stan przełączników i wyswietla na ledach na płytce uC
+  
+#MCP4921
+- P0.10 -> CS_DAC
+- SPI_MCP4921.hex
+- Wyjście: na duzych viach po obu sronach układu (GND,Vout), napiecia 0V,1.65V,3.3V naprzemian, ciągle
+
+
