@@ -11,7 +11,7 @@ set(CMAKE_CXX_COMPILER arm-none-eabi-g++)
 set(CMAKE_ASM_COMPILER  arm-none-eabi-gcc)
 set(CMAKE_AR arm-none-eabi-ar)
 set(CMAKE_OBJCOPY arm-none-eabi-objcopy)
-set(CMAKE_OBJDUMP arm-none-eabi-objdump)none-eabi-objcopy)
+set(CMAKE_OBJDUMP arm-none-eabi-objdump)
 set(SIZE arm-none-eabi-size)
 set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
 
@@ -49,11 +49,11 @@ else ()
     add_compile_options(-g)
 endif ()
 
-include_directories(modules/gpio_interrupts/inc)
+include_directories(modules/gpio_servo/inc)
 
 add_definitions(-DUSE_HAL_DRIVER -DSTM32F407xx)
 
-file(GLOB_RECURSE SOURCES "modules/gpio_interrupts/src/*.*" "modules/gpio_interrupts/work_dir/8.5.c"  "startup/*.*")
+file(GLOB_RECURSE SOURCES "modules/gpio_servo/src/*.*" "modules/gpio_servo/work_dir/9.4.c"  "startup/*.*")
 
 set(LINKER_SCRIPT ${CMAKE_SOURCE_DIR}/stm32_m4_ls.ld)
 
