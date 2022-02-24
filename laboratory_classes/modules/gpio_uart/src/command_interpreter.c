@@ -2,19 +2,19 @@
 
 #define NULL 0
 
-struct Token asToken[MAX_TOKEN_NR];
+struct token asToken[MAX_TOKEN_NR];
 unsigned char ucTokenNr;
 
-struct Keyword asKeywordList[MAX_KEYWORD_NR] = {
+struct keyword asKeywordList[MAX_KEYWORD_NR] = {
     {ID, "id"},
     {CALIB,"calib"},
     {GOTO, "goto" },
     {STEP, "step" }
 };
 
-unsigned char ucFindTokensInString(char *pcString)
+unsigned char find_tokens_in_string(char *pcString)
 {
-    enum WorkType eTryb = DELIMITER;
+    enum work_type eTryb = DELIMITER;
 
     unsigned char ucTokenNr = 0;
     unsigned char ucArrayIndex;
@@ -49,7 +49,7 @@ unsigned char ucFindTokensInString(char *pcString)
     }
 }
 
-enum CompResult eCompareString(char pcStr1[], char pcStr2[])
+enum comp_result compare_string(char pcStr1[], char pcStr2[])
 {
     unsigned char ucCharacterCounter;
 
@@ -60,13 +60,13 @@ enum CompResult eCompareString(char pcStr1[], char pcStr2[])
     return DIFFERENT;
 }
 
-enum Result eStringToKeyword (char pcStr[],enum KeywordCode *peKeywordCode)
+enum result string_to_keyword (char pcStr[],enum keyword_code *peKeywordCode)
 {
     unsigned char ucArrayIndex;
 
     for(ucArrayIndex = 0; ucArrayIndex < MAX_KEYWORD_NR; ucArrayIndex++){
 
-        if(EQUAL == eCompareString(asKeywordList[ucArrayIndex].cString, pcStr)){
+        if(EQUAL == compare_string(asKeywordList[ucArrayIndex].cString, pcStr)){
             *peKeywordCode = asKeywordList[ucArrayIndex].eCode;
             return rOK;
        }
@@ -74,7 +74,7 @@ enum Result eStringToKeyword (char pcStr[],enum KeywordCode *peKeywordCode)
     return rERROR;
 }
 
-enum Result eHexStringToUInt(char pcStr[],unsigned int *puiValue)
+enum result hex_string_to_int(char pcStr[],unsigned int *puiValue)
 {
     unsigned char ucCharacterCounter;
     unsigned char ucCurrentCharacter;
@@ -106,20 +106,20 @@ enum Result eHexStringToUInt(char pcStr[],unsigned int *puiValue)
     return rERROR;
 }
 
-void DecodeTokens(void)
+void decode_tokens(void)
 {
     unsigned char ucArrayIndex;
-    struct Token *psCurrentToken;
+    struct token *psCurrentToken;
     unsigned int uiTokenValue;
-    enum KeywordCode eKodTokena;
+    enum keyword_code eKodTokena;
 
     for(ucArrayIndex = 0; ucArrayIndex < ucTokenNr; ucArrayIndex++){
         psCurrentToken = &asToken[ucArrayIndex];
-        if(rOK == eHexStringToUInt(psCurrentToken->uValue.pcString, &uiTokenValue)){
+        if(rOK == hex_string_to_int(psCurrentToken->uValue.pcString, &uiTokenValue)){
             psCurrentToken->eType = NUMBER;
             psCurrentToken->uValue.uiNumber = uiTokenValue;
         }
-        else if(rOK == eStringToKeyword(psCurrentToken->uValue.pcString, &eKodTokena)){
+        else if(rOK == string_to_keyword(psCurrentToken->uValue.pcString, &eKodTokena)){
             psCurrentToken->eType = KEYWORD;
             psCurrentToken->uValue.eKeyword = eKodTokena;
         }
@@ -129,7 +129,7 @@ void DecodeTokens(void)
     }
 }
 
-void ReplaceCharactersInString(char pcString[],char cOldChar,char cNewChar)
+void replace_Char_in_string(char pcString[],char cOldChar,char cNewChar)
 {
     unsigned char ucCharacterCounter;
 
@@ -139,9 +139,9 @@ void ReplaceCharactersInString(char pcString[],char cOldChar,char cNewChar)
     }
 }
 
-void DecodeMsg(char *pcString)
+void decode_msg(char *pcString)
 {
-    ucTokenNr = ucFindTokensInString(pcString);
-    ReplaceCharactersInString(pcString, ' ', NULL);
-    DecodeTokens();
+    ucTokenNr = find_tokens_in_string(pcString);
+    replace_Char_in_string(pcString, ' ', NULL);
+    decode_tokens();
 }

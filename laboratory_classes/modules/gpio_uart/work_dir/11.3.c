@@ -5,7 +5,7 @@
 #include "led.h"
 #include "command_interpreter.h"
 
-extern struct Token asToken[MAX_TOKEN_NR];
+extern struct token asToken[MAX_TOKEN_NR];
 extern unsigned char ucTokenNr;
 
 char data[15];
@@ -24,7 +24,7 @@ int main (){
 	while(1){
 	if (receiver_get_status() == READY) {
 		receiver_get_string_copy(data);
-		DecodeMsg(data);
+		decode_msg(data);
 		if((ucTokenNr != 0) && (asToken[0].eType == KEYWORD)){
 			switch(asToken[0].uValue.eKeyword){
 			case CALIB:

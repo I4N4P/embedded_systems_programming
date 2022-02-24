@@ -2,33 +2,27 @@
 #define MAX_KEYWORD_STRING_LTH 10
 #define MAX_KEYWORD_NR 4
 
-enum KeywordCode {ID, CALIB,GOTO,STEP};
-enum TokenType {KEYWORD, NUMBER, STRING};
-enum CompResult {DIFFERENT, EQUAL};
-enum WorkType{TOKEN, DELIMITER};
-enum Result {rOK,rERROR};
+enum keyword_code {ID, CALIB,GOTO,STEP};
+enum token_type {KEYWORD, NUMBER, STRING};
+enum comp_result {DIFFERENT, EQUAL};
+enum work_type{TOKEN, DELIMITER};
+enum result {rOK,rERROR};
 
-struct Keyword{
-    enum KeywordCode eCode;
+struct keyword{
+    enum keyword_code eCode;
     char cString[MAX_KEYWORD_STRING_LTH + 1];
 };
 
-union TokenValue{
-    enum KeywordCode eKeyword;
+union token_value{
+    enum keyword_code eKeyword;
     unsigned int uiNumber;
     char* pcString;
 };
 
-struct Token{
-    enum  TokenType  eType;
-    union TokenValue uValue;
+struct token{
+    enum  token_type  eType;
+    union token_value uValue;
 };
 
 
-void DecodeMsg(char *);
-unsigned char ucFindTokensInString(char *);
-void ReplaceCharactersInString(char [],char ,char);
-void DecodeTokens(void);
-enum Result eHexStringToUInt(char [],unsigned int *);
-enum Result eStringToKeyword (char [],enum KeywordCode *);
-enum CompResult eCompareString(char [],char []);
+void decode_msg(char *);
