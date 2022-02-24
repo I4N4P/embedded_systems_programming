@@ -1,8 +1,8 @@
 #define MAX_TOKEN_NR 2
 #define MAX_KEYWORD_STRING_LTH 10
-#define MAX_KEYWORD_NR 4
+#define MAX_KEYWORD_NR 6
 
-enum keyword_code {ID, CALIB,GOTO,STEP};
+enum keyword_code {ID, CALIB,GOTO,STEP,CALC,TIME};
 enum token_type {KEYWORD, NUMBER, STRING};
 enum comp_result {DIFFERENT, EQUAL};
 enum work_type{TOKEN, DELIMITER};
@@ -26,3 +26,7 @@ struct token{
 
 
 void decode_msg(char *);
+void int_to_hex_str(unsigned int, char *);
+void append_int_to_string(unsigned int, char *);
+void append_string(char *,char *);
+void copy_string(char * , char * );

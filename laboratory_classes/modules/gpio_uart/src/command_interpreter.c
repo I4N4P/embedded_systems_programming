@@ -9,7 +9,10 @@ struct keyword asKeywordList[MAX_KEYWORD_NR] = {
     {ID, "id"},
     {CALIB,"calib"},
     {GOTO, "goto" },
-    {STEP, "step" }
+    {STEP, "step" },
+    {CALC, "calc" },
+    {TIME, "time" },
+
 };
 
 unsigned char find_tokens_in_string(char *pcString)
@@ -129,7 +132,7 @@ void decode_tokens(void)
     }
 }
 
-void replace_Char_in_string(char pcString[],char cOldChar,char cNewChar)
+void replace_char_in_string(char pcString[],char cOldChar,char cNewChar)
 {
     unsigned char ucCharacterCounter;
 
@@ -142,6 +145,48 @@ void replace_Char_in_string(char pcString[],char cOldChar,char cNewChar)
 void decode_msg(char *pcString)
 {
     ucTokenNr = find_tokens_in_string(pcString);
-    replace_Char_in_string(pcString, ' ', NULL);
+    replace_char_in_string(pcString, ' ', NULL);
     decode_tokens();
+}
+
+void int_to_hex_str(unsigned int value, char * str)
+{
+
+        unsigned char ucNibbleCounter;
+        unsigned char ucCurrentNibble;
+
+        str[0] = '0';
+        str[1] = 'x';
+        str[6] = NULL;
+
+        for(ucNibbleCounter = 0; ucNibbleCounter < 4; ucNibbleCounter++){
+                ucCurrentNibble = (value >> (ucNibbleCounter * 4)) & 0x0F;
+                if (ucCurrentNibble < 10) {
+                        str[5 - ucNibbleCounter] = '0' + ucCurrentNibble;
+                } else {
+                        str[5 - ucNibbleCounter] = 'A' + (ucCurrentNibble - 10);
+                }
+        }
+}
+
+void append_int_to_string(unsigned int uiValue, char * pcDestinationStr){
+
+        for(pcDestinationStr; *pcDestinationStr != NULL; pcDestinationStr++);
+        int_to_hex_str(uiValue, pcDestinationStr);
+
+}
+void copy_string(char * pcSource, char * pcDestination){
+
+		for(pcSource; *pcSource != NULL; pcSource++){
+				*pcDestination = *pcSource;
+                                pcDestination++;
+		}
+		*pcDestination = NULL;
+}
+
+void append_string(char * pcSourceStr,char * pcDestinationStr){
+
+
+        for(pcDestinationStr; *pcDestinationStr != NULL; pcDestinationStr++);
+	copy_string(pcSourceStr, pcDestinationStr);
 }

@@ -17,15 +17,10 @@
 #define TRANSMITER_SIZE  30
 
 char received_data;
-
 struct received_buffer {
 	char data[RECEIVED_SIZE];
 	unsigned char data_ctr;
 	enum received_status status;
-};
-enum transmiter_status {
-	FREE,
-	BUSY,
 };
 typedef struct transmiter_buffer {
 	char data[TRANSMITER_SIZE];
@@ -101,6 +96,11 @@ void transmiter_send_string(unsigned char string[])
 	tx_data.status = BUSY;
 	tx_data.last_character = 0;
 	while (tx_data.status == BUSY);
+}
+
+enum transmiter_status transmiter_get_status(void)
+{
+	return tx_data.status;
 }
 
 __attribute__((interrupt)) void USART2_IRQHandler(void)
