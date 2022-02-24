@@ -49,11 +49,11 @@ else ()
     add_compile_options(-g)
 endif ()
 
-include_directories(modules/gpio_servo/inc)
+include_directories(modules/gpio_uart/inc)
 
 add_definitions(-DUSE_HAL_DRIVER -DSTM32F407xx)
 
-file(GLOB_RECURSE SOURCES "modules/gpio_servo/src/*.*" "modules/gpio_servo/work_dir/9.4.c"  "startup/*.*")
+file(GLOB_RECURSE SOURCES "modules/gpio_uart/src/*.*" "modules/gpio_uart/work_dir/11.3.c"  "startup/*.*")
 
 set(LINKER_SCRIPT ${CMAKE_SOURCE_DIR}/stm32_m4_ls.ld)
 

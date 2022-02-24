@@ -1,5 +1,10 @@
 {
         "files.associations": {
-                "stm32f407xx.h": "c"
+                "stm32f407xx.h": "c",
+                "led.h": "c",
+                "keyboard.h": "c",
+                "servo.h": "c",
+                "uart.h": "c",
+                "main.h": "c"
         }
 }
