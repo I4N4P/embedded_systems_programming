@@ -8,7 +8,7 @@
 extern struct token asToken[MAX_TOKEN_NR];
 extern unsigned char ucTokenNr;
 
-char data[15];
+char data[30];
 
 void delay(int time)
 {
@@ -22,22 +22,25 @@ int main (){
 	//keyboard_init();
 	uart_init_with_irq();
 	while(1){
-	if (receiver_get_status() == READY) {
-		receiver_get_string_copy(data);
-		decode_msg(data);
-		if((ucTokenNr != 0) && (asToken[0].eType == KEYWORD)){
-			switch(asToken[0].uValue.eKeyword){
-			case CALIB:
-				servo_calib();
-				break;
-			case GOTO:
-				servo_goto(asToken[1].uValue.uiNumber);
-				break;
+		//send('G');
+		if (receiver_get_status() == READY) {
+			transmiter_send_string("msg received\n");
+			receiver_get_string_copy(data);
+			decode_msg(data);
+			if((ucTokenNr != 0) && (asToken[0].eType == KEYWORD)){
+				switch(asToken[0].uValue.eKeyword){
+				case CALIB:
+					servo_calib();
+					transmiter_send_string("calibration has started\n");
+					break;
+				case GOTO:
+					servo_goto(asToken[1].uValue.uiNumber);
+					break;
+				}
+			}else if((ucTokenNr != 0)){
+				transmiter_send_string("unknown command\n");
 			}
-		}else if((ucTokenNr != 0)){
-			//ucPuts("unknowncommand\n", 16);
 		}
-	}
-	delay(100);
+	delay(1000);
 	}
 }

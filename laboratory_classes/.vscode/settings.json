@@ -6,5 +6,6 @@
                 "servo.h": "c",
                 "uart.h": "c",
                 "main.h": "c"
-        }
+        },
+        "cortex-debug.variableUseNaturalFormat": false
 }
