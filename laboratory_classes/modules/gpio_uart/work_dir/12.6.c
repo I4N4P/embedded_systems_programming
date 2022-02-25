@@ -3,7 +3,7 @@
 #include "servo.h"
 #include "uart.h"
 #include "led.h"
-#include "command_interpreter.h"
+#include "console.h"
 
 #define USART2DR (*((volatile unsigned long *) 0x40004404))
 

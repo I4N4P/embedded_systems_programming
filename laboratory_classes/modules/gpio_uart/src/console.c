@@ -1,5 +1,5 @@
 #include "main.h"
-#include "command_interpreter.h"
+#include "console.h"
 
 enum comp_result {DIFFERENT, EQUAL};
 enum work_type {TOKEN, DELIMITER};
