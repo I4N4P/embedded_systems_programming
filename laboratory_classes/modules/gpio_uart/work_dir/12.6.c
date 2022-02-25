@@ -7,8 +7,8 @@
 
 #define USART2DR (*((volatile unsigned long *) 0x40004404))
 
-extern struct token asToken[MAX_TOKEN_NR];
-extern unsigned char ucTokenNr;
+extern struct token tokken[MAX_TOKEN_NR];
+extern unsigned char token_number;
 
 char data[30];
 
@@ -74,8 +74,8 @@ int main (){
 		if (receiver_get_status() == READY) {
 			receiver_get_string_copy(data);
 			decode_msg(data);
-			if((ucTokenNr != 0) && (asToken[0].eType == KEYWORD)){
-				switch(asToken[0].uValue.eKeyword){
+			if((token_number != 0) && (tokken[0].eType == KEYWORD)){
+				switch(tokken[0].uValue.eKeyword){
 				case ID :
 					transmiter_send_string("I'm MrRobot <3\n");
 					break;
@@ -84,18 +84,18 @@ int main (){
 					transmiter_send_string("calibration has started\n");
 					break;
 				case GOTO:
-					servo_goto(asToken[1].uValue.uiNumber);
+					servo_goto(tokken[1].uValue.uiNumber);
 					break;
 				case CALC:
 					copy_string(empty,temp);
 					append_string(string4,temp);
-					append_int_to_string((asToken[1].uValue.uiNumber * 2),temp);
+					append_int_to_string((tokken[1].uValue.uiNumber * 2),temp);
 					append_string(string2,temp);
 					if (transmiter_get_status() == FREE)
 						transmiter_send_string(temp);
 					break;
 				}
-			}else if((ucTokenNr != 0)){
+			}else if((token_number != 0)){
 				transmiter_send_string("unknown command\n");
 			}
 		}

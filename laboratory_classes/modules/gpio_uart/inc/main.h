@@ -26,4 +26,3 @@
 #define TIM12CCR1  (*((volatile unsigned long *) 0x40001834))
 
 #define NVICISER1  (*((volatile unsigned long *) 0xE000E104))
-
