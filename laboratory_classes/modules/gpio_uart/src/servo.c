@@ -18,7 +18,6 @@ enum servo_state {
 	IDLE,
 	IN_PROGRESS,
 };
-
 struct servo {
 	enum servo_state state;
 	unsigned int desired_position;
@@ -54,8 +53,8 @@ void servo_goto(unsigned int position)
 	servo.desired_position = position;
 }
 
-
-void Automat(){
+void Automat()
+{
 	switch (servo.state) {
 	case CALLIB :
 		if (read_detector() == ACTIVE) {
