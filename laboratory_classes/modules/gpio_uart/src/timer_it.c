@@ -1,6 +1,5 @@
 #include "main.h"
-#include "led.h"
-#include "timer.h"
+#include "timer_it.h"
 
 #define TIM12_CLK_EN (1 << 6)
 #define TIM12_PRESCA (16000 - 1)

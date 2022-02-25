@@ -1,7 +1,7 @@
 #include "main.h"
 #include "led.h"
 #include "servo.h"
-#include "timer_interrupts.h"
+#include "timer_it.h"
 
 #define USR_BLUE_SET   (1 << 0)
 #define USR_BLUE_DIR   (1 << 0) | (1 << 1)
