@@ -4,6 +4,7 @@
 #include "uart.h"
 #include "led.h"
 #include "console.h"
+#include "string.h"
 
 #define USART2DR (*((volatile unsigned long *) 0x40004404))
 
