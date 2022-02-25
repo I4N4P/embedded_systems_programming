@@ -64,4 +64,3 @@ void wait_on_timer_12_match_0(void)
 	while (!(TIM12SR & TIM_IRQ_EN));
 	TIM12SR &= TIM_IRQ_CLR;
 }
-
