@@ -3,11 +3,11 @@
 #include "uart.h"
 
 #define GPIOAOSPEED (*((volatile unsigned long *) 0x40020008))
-#define GPIOAAFRL (*((volatile unsigned long *) 0x40020020))
-#define USART2SR (*((volatile unsigned long *) 0x40004400))
-#define USART2CR (*((volatile unsigned long *) 0x4000440C))
-#define USART2DR (*((volatile unsigned long *) 0x40004404))
-#define USART2BRR (*((volatile unsigned long *) 0x40004408))
+#define GPIOAAFRL   (*((volatile unsigned long *) 0x40020020))
+#define USART2SR    (*((volatile unsigned long *) 0x40004400))
+#define USART2CR    (*((volatile unsigned long *) 0x4000440C))
+#define USART2DR    (*((volatile unsigned long *) 0x40004404))
+#define USART2BRR   (*((volatile unsigned long *) 0x40004408))
 
 #define GPIOA_EN        (1 << 0)
 #define DATA2READ	(1 << 5)
@@ -50,11 +50,13 @@ void receiver_char_to_buffer(char character)
 	}
 }
 
-enum received_status receiver_get_status(void){
+enum received_status receiver_get_status(void)
+{
 	return rx_data.status;
 }
 
-void receiver_get_string_copy(char * destination){
+void receiver_get_string_copy(char * destination)
+{
 	for(int i = 0; i < RECEIVED_SIZE; i++) {
 		destination[i] = rx_data.data[i];
 		if (rx_data.data[i] == NULL)
@@ -105,15 +107,15 @@ enum transmiter_status transmiter_get_status(void)
 
 __attribute__((interrupt)) void USART2_IRQHandler(void)
 {
-	if ((USART2SR & (1<<6)) == (1<<6)) {
+	if ((USART2SR & (1<<6)) == (1<<6)) {	// check tx source
 		if (tx_data.status == BUSY) {
 			USART2DR = transmiter_get_char_from_buffer();
 		}
-		USART2SR &= (0<<6);
+		USART2SR &= (0<<6);		// clr flag
 	}
-	if ((USART2SR & (1<<5)) == (1<<5)) {
+	if ((USART2SR & (1<<5)) == (1<<5)) { 	// check rx source
 		receiver_char_to_buffer(USART2DR);
-		USART2SR &= (0<<5);
+		USART2SR &= (0<<5);		// clr flag
 	}
 }
 
