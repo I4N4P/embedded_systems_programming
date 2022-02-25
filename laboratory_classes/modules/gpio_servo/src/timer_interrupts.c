@@ -1,5 +1,4 @@
 #include "main.h"
-#include "led.h"
 #include "timer.h"
 
 #define TIM12_CLK_EN (1 << 6)
@@ -14,14 +13,13 @@
 
 void (*ptrTimer0InterruptFunction)();
 
-/**********************************************/
-//(Interrupt Service Routine) of Timer 12 interrupt
 __attribute__((interrupt)) void TIM8_BRK_TIM12_IRQHandler(void)
 {
-if (TIM12SR & TIM_IRQ_EN) ptrTimer0InterruptFunction();
+	if (TIM12SR & TIM_IRQ_EN)
+		ptrTimer0InterruptFunction();
 	TIM12SR &= TIM_IRQ_CLR;
 }
-/**********************************************/
+
 void timer_12_interrupts_init(unsigned int period,void (*ptrInterruptFunction)()) // microseconds
 {
 	ptrTimer0InterruptFunction = ptrInterruptFunction;
@@ -46,4 +44,3 @@ void timer_12_interrupts_init(unsigned int period,void (*ptrInterruptFunction)()
 	// Clear Interrupt flag
 	TIM12SR &= TIM_IRQ_CLR;
 }
-/**********************************************/
