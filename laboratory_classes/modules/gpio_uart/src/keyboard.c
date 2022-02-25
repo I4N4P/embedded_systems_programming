@@ -1,9 +1,6 @@
 #include"main.h"
 #include"keyboard.h"
 
-// #define BUTTON_0_SET   (1 << 0)
-// #define BUTTON_0_DIR   (1 << 0) | (1 << 1)
-// #define BUTTON_0_PUL   (1 << 0)
 #define BUTTON_0_SET   (1 << 1)
 #define BUTTON_0_DIR   (1 << 2) | (1 << 3)
 #define BUTTON_0_PUL   (1 << 2)
