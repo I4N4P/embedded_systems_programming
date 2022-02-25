@@ -11,6 +11,11 @@
 #define LED_BLUE_DIR   (1 << 30)
 #define GPIOD_EN       (1 << 3)
 
+enum step_direction {
+	LEFT,
+	RIGHT,
+};
+
 void led_init(void)
 {
 	// Enable clock for peripherals
@@ -22,6 +27,7 @@ void led_init(void)
 	// turn on green led
 	GPIODDATA |= LED_GREEN_SET;
 }
+
 void led_on(unsigned char led_index)
 {
 	GPIODDATA &= ~(LED_GREEN_SET | LED_ORANGE_SET | LED_RED_SET | LED_BLUE_SET);
